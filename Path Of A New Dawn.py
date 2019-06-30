@@ -30,10 +30,9 @@ def C1Start():
 def Debug():
     print("Welcome to debug")
     print("")
-    print("Chapter 2 E")
-    print("Chapter 2 R")
-    print("Chapter 3 R")
-    print("Chapter 3 E")
+    print("Chapter 2 R/E")
+    print("Chapter 3 R/E")
+    print("Chapter 4 R/E")
     Select = input()
     Select=Select.upper()
     if Select == "CHAPTER 2 E":
@@ -44,6 +43,11 @@ def Debug():
         C3RStart()
     elif Select == "CHAPTER 3 E":
         C3EStart()
+    elif Select == "CHAPTER 4 R":
+        C4RStart()
+    elif Select == "CHAPTER 4 E":
+        C4EStart()
+        
 def C1Intro():
     print("My name is lucas and I live in the lucian falls apartmant building.\nMy life is pretty average but I have a great job.\nWhat was that nightmare? And why hasn't my alarm clock woke me up?\nI'm going to be late for work\n\nOptions:\nInspect clock\nInspect plugs\nLeave bedroom")
     Select = input()
@@ -518,7 +522,7 @@ def C2RShotgun():
         C2RShotgun()
         
 def C2RSneak():
-    print("You sneak arround them but you have to ditch the car and everything in it.\nYou will need to find another car...\n\nOptions:\nLook around")
+    print("You sneak around them but you have to ditch the car and everything in it.\nYou will need to find another car...\n\nOptions:\nLook around")
     Select = input()
     Select = Select.upper()
     print("")
@@ -1052,8 +1056,9 @@ def C3RTHKitchen():
 
 def C3RPrison():
     print("You enter the abandoned prison.\nThe doors look like they have been lockpicked.\nYou follow the doors and you see someone standing there in the dark.\nEND OF CHAPTER.")
-#End of C3R
-#Start of C3E
+    C4RStart()
+#C3R End
+#C3E Start
 def C3EStart():
     print("You enter Emma's house.\nIt's quite large for a house in the woods.\nThe countdowns are at 0 and the rocket is about to launch...\nSuddenly the ground momentarily shakes\n\nDid the rocket launch?\nEmma leads you down to the basement.\n\nOptions:\nEnter basement")
     Select = input()
@@ -1330,9 +1335,353 @@ def C3ECSGen():
 
 def C3EEnd():
     print("You turn on the device.\nIt says the teleporter is empty.\nYou told Emma you were right.\nYou step into the teleport and it starts to count down.\nThe timer reaches 0.\n\nEND OF CHAPTER.")
-    input("Error 01- You have finished the game so far. press enter to restart.")
-    C1intro()
+    C4EStart()
+#C3E End
+#C4R Start
+
+def C4RStart():
+    print("You enter the cells.\nThere are a couple of cells but you can hear someone shouting.\nThere are 3 cells.\nYou wonder what cell you should look at 1st.\n\nCell 1\nCell 2\nCell 3")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "CELL 1":
+        C4RPC1()
+    elif Select == "CELL 2":
+        C4RPC2()
+    elif Select == "CELL 3":
+        C4RPC3()
+    else:
+        print("Invalid Command")
+        C4RStart() 
+
+def C4RPC1():
+    print("The cell has completly colasped.\nThere are some shreds of a poster but it's unreadable.\nThere is also a sign that mentions entering parliment in armour is a crime?\n\nOptions:\nCell block")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "CELL BLOCK":
+        C4RStart()
+    else:
+        print("Invalid Command")
+        C4RPC1()
+
+def C4RPC2():
+    print("You look at the cell.\nThe wall is filled with mathmatical ratios.\nOne wall is even dedicated to the numbers of pi.\n\nOptions:\nCell block")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "CELL BLOCK":
+        C4RStart()
+    else:
+        print("Invalid Command")
+        C4RPC2()
+
+def C4RPC3():
+    print("You look at the Cell 3.\nRichard asks you to open the door.\nYou shoot the lock and open the gate.\nRichard explains that the door locked automaticly for some reason.\nYou decide to tell him about the shelter collasping.\nHe says that we need to get out of here.\n\nOptions:\nLeave")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LEAVE":
+        C4RPCLeave()
+    else:
+        print("Invalid Command")
+        C4RPC3()    
+
+def C4RPCLeave():
+    print("You both leave and Richard he tells you that there is a bunker nearby.\n\nAs you leave the prison Richard asks you about about the rocket.\nYou tell him that it launched.\n\nHe tells you that it released EMP designed for testing inventions.\n\nHowever he doesn't know much else.\nYou both eventually leave.\n\nOptions:\nLeave prison")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LEAVE PRISON":
+        C4RBEnterance()
+    else:
+        print("Invalid Command")
+        C4RPCLeave()     
+
+def C4RBEnterance():
+    print("You leave the prison and run to the bunker.\nSuprisingly it's not that far away.\n\nYou smash a window and get in.\n\nRichard looks shocked.\nYou ask him whats wrong,\nHe says that it's completly empty!\nYou decide to look around the bunker.\n\nOption:\nExplore")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "EXPLORE":
+        C4RBTeleport()
+    else:
+        print("Invalid Command")
+        C4RBEnterance()
+
+def C4RBTeleport():
+    print("You look around some of the rooms but they are all empty.\nHowever Richard finds a elevator and he manages to force it open.\n\nOptions:\nEnter elevator")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "ENTER ELEVATOR":
+        C4RBElevator()
+    else:
+        print("Invalid Command")
+        C4RBTeleport()
+
+def C4RBElevator():
+    print("You enter the lift.\nMost of the buttons aren't lit.\nRichard presses a button and the elevator starts moving.\n\nAfter awhile the elevator doors open.\nOptions:\nLeave elevator")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LEAVE ELEVATOR":
+        C4RBCoridor()
+    else:
+        print("Invalid Command")
+        C4RBElevator()
+
+def C4RBCoridor():
+    print("You leave the elevator.\nRichard walks towards a door and he says there is a party.\nHe tell you that you should go backstage.\n\nYou enter the room.\nThe room is huge and there are lots of people dancing.\nBoth of you go backstage.\nRichard tells you to cut the power.\n\nOptions:\nShoot sandbag\nCut power")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "CUT POWER":
+        C4RBBP()
+    elif Select == "SHOOT SANDBAG":
+        C4RBBS()
+    else:
+        print("Invalid Command")
+        C4RBCoridor()
     
+def C4RBBP():
+    print("You cut the power and run through the backdoor.\nPeople start to scream!\n\nOptions:\nLeave room")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LEAVE ROOM":
+        C4RBBackstage()
+    else:
+        print("Invalid Command")
+        C4RBBP()
+
+def C4RBBS():
+    print("You shoot the sandbag and it hits someone.\nYou run through the backdoor.\n\nOptions:\nLeave Room")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LEAVE ROOM":
+        C4RBBackstage()
+    else:
+        print("Invalid Command")
+        C4RBBS()        
+
+def C4RBBackstage():
+    print("You walk past and Richard grabs a keycard.\nAfter you leave you ask Richard what he got.\nHe says that he got a keycard but he needs a higher ranking one.\nYou ask Richard where you find one.\nHe tells you that the IT room is down the hall.\n\nOptions:\nIT Room")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "IT ROOM":
+        C4RBITRoom()
+    else:
+        print("Invalid Command")
+        C4RBBackstage()
+
+def C4RBITRoom():
+    print("You enter the IT room and the walls are filled with servers.\nThere is a room thats filled people that could help you to get a higher level keycard.\nYou ask Richard what you should do.\nHe hands you the keycard and he tells you to ask for a higher level card.\n\nOptions:\nOpen door")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "OPEN DOOR":
+        C4RBITKey()
+    else:
+        print("Invalid Command")
+        C4RBITRoom()    
+
+def C4RBITKey():
+    print("You enter the room and say you are from support.\nThey sigh and say it took you long enough.\nA man aproaches you and asks you what you need.\nYou tell him that you are doing maintainance on the power box and other computers but you need a higher level keycard.\nHe looks annoyed and justs gives you his keycard.\n\nOptions:\nLeave room")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LEAVE ROOM":
+        C4RBITKey1()
+    else:
+        print("Invalid Command")
+        C4RBITKey()
+
+def C4RBITKey1():
+    print("You walk out and tell Richard that it was easy.\nHe looks suprised but tells you that you need to leave.\nRichard says he has a grenade and he throws it into the server room.\nYou both run out.\n\nRichard tells you that you need to get to the lift.\n\nOptions:\nGo to lift.")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "GO TO LIFT":
+        C4REnd()
+    else:
+        print("Invalid Command")
+        C4RBITKey1()
+
+def C4REnd():
+    print("You run to the elevator and scan the keycard.\nAll of the buttons light up.\nRichard presses a low button.\nThe door opens and you see Emma?\n\nEND OF CHAPTER")
+#C4R End
+#C4E Start
+
+def C4EStart():
+    print("You wake up.\nYou cannot feel anything and you can see lots of bright lights.\nSomeone walks towards you and holds out their hand.\n\nYou grab their hand and after awhile your vision clears up.\nYou see Emma.\nYou tell her that you never want to teleport again.\n\nOptions:\nLook around")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LOOK AROUND":
+        C4EBLook()
+    else:
+        print("Invalid Command")
+        C4EStart()
+
+def C4EBLook():
+    print("You look around and the walls are painted a dull white.\nFurthermore there are a couple of computers scattered around room and there is a hologram on the door.\nYou should check out the door.\n\nOptions:\nCheck computer\nCheck door")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "CHECK DOOR":
+        C4EBDoor()
+    elif Select == "CHECK COMPUTER":
+        C4EBComputer()
+    else:
+        print("Invalid Command")
+        C4EBLook()    
+
+def C4EBComputer():
+    print("You check the computer.\nIt's full of text that seems to be in latin.\nUnfortunetly you cannot read latin\nYou should probably check the door.\n\nOptions:\nCheck door")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "CHECK DOOR":
+        C4EBDoor()
+    else:
+        print("Invalid Command")
+        C4EBComputer()    
+
+def C4EBDoor():
+    print("You look at the door pannel.\nIt looks very complicated but you can see a button labeled open door.\n\nYou open the door however Emma is still looking at the door pannel.\nShe manages to turn off the lights and she finds a somthing about the rocket.\nEmma tells you to read it.\n\nIt reads:\nThe Rocket project has been in development for several years.\nWe eventually decided that we wish to change the world\nWe have recuited new members that will patrol the streets.\nWe have the more skilled members ready in key positions.\nHowever the file ends there.\n\nOptions:\nLeave room")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LEAVE ROOM":
+        C4EBCorridor()
+    else:
+        print("Invalid Command")
+        C4EBDoor()        
+
+def C4EBCorridor():
+    print("You walk into the corridor carefully and the lights flicker on.\nThe walls are a glossy shade of red.\nThere are also some pictures of test rockets.\n\nAfter awhile of walking down the hallway you see a portait of workers.\nBizzarly Richards face has been crossed out.\n\nYou need to find Richard.\n\nYou eventually see that you can go left or right.\n\nOptions:\nGo left\nGo right")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "GO RIGHT":
+        C4EBRight()
+    elif Select == "GO LEFT":
+        C4EBLeft()
+    else:
+        print("Invalid Command")
+        C4EBCorridor() 
+
+def C4EBLeft():
+    print("You go left.\nHowever you see many people surround a hall.\nThey start going into the conference hall but some security stay outside.\nIt's probably better if you went right instead.\n\nOptions:\nGo right")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "GO RIGHT":
+        C4EBRight()
+    else:
+        print("Invalid Command")
+        C4EBLeft() 
+
+def C4EBRight():
+    print("You walk right and enter a huge conference hall.\nSome people are holding a huge party!\nYou walk towards a outfit and tell Emma to put it on and blend in.\nYou tell Emma to grab that keycard when the power goes out.\n\nEmma walks toward the DJ and starts a coverseration.\nTime to cut the power...\n\nOptions:\nCut power")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "CUT POWER":
+        C4EBPwr()
+    else:
+        print("Invalid Command")
+        C4EBRight()
+
+def C4EBPwr():
+    print("You cut the power.\nPeople start screaming and Emma runs towards the exit.\n\nLeave")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LEAVE":
+        C4EBElevator()
+    else:
+        print("Invalid Command")
+        C4EBPwr()    
+
+def C4EBElevator():
+    print("You run to the exit and Emma scans the key key card.\nSome of the buttons light up and Emma presses the B3 button\nThe elevator slowly moves and then suddenly stops.\n\nThe door opens slightly and you hear Richard shout at you.\nYou tell Richard that it's you.\nHe calms down and tells you that you need a higher level keycard to get down here.\n\nHe hands you a guide and tells you to go to B2\n\nEmma presses B2 while you read the manual.\nYou eventually find that you can speed up and slow down.\n\nYou hold the speed++ button and you reach B2 at high speeds!\n\nOptions:\nB2")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "B2":
+        C4EB2()
+    else:
+        print("Invalid Command")
+        C4EBElevator()
+
+def C4EB2():
+    print("You arrive at floor B2.\nMost of the rooms look empty except for the lunch room.\nEmma says you should check the Alchemist room.\n\nOptions:\nAlchemist room\nLunch room")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "ALCHEMIST ROOM":
+        C4EB2Alchemist()
+    elif Select == "LUNCH ROOM":
+        C4ELunch()
+    else:
+        print("Invalid Command")
+        C4EB2()
+
+def C4ELunch():
+    print("You enter the lunch room and somebody shoots you.\nGAME OVER\nPress enter to restart")
+    Select = input()
+    C4ELunch()
+
+def C4EB2Alchemist():
+    print("You enter the Alchemist room.\nIt's very dark but Emma finds the light switch.\n\nThe entire room lights up with bright floodlights\n\nIn the back of the room there is a computer.\nAfter awhile of reading you find out that the rocket will cause a horrible winter and is just a diversion.\n\nWhile you were reading Emma found some smoke grenades.\nYou should check the Engineering room.\n\nOptions:\nEngineering room")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "ENGINEERING ROOM":
+        C4B2Engineer()
+    else:
+        print("Invalid Command")
+        C4EB2Alchemist()
+
+def C4B2Engineer():
+    print("You enter the engineering room.\nIt's quite empty however theres a car and some soldiering tools.\n\nA bell rings and you both hide behind a table.\nMultiple people storm the room and tell you to put your hands up\n\nOptions:\nThrow grenades\nSurrender")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "SURRENDER":
+        C4Surrender()
+    elif Select == "THROW GRENADES":
+        C4Fighton()
+    else:
+        print("Invalid Command")
+        C4B2Engineer()    
+
+def C4Surrender():
+    print("You put your hand up and you are arrested.\nEmma trys to escape but is also arrested.\n\nEND OF CHAPTER")
+    #C5 MARKER
+
+def C4Fighton():
+    print("Emma hands you a smoke grenade and a molotov cocktail.\nYou put your hands up to surrender but you roll the smoke grenade.\n\nThe grenade explodes and you and emma jump over the table.\nYou turn arround and light and throw the molotov.\n\nAfter waiting for the flames to die out you grab a key card and run to the elevator.\n\nOptions:\nLeave")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LEAVE":
+        C4EEND()
+    else:
+        print("Invalid Command")
+        C4Fighton()    
+
+def C4EEND():
+    print("You run to the elevator and slam B3.\nThe lights suddenly turn off and the doors open.\n\nEND OF CHAPTER.")
+
+
+
+
+
 #Starting Function
 C1Start()
 print("Error 00 - Misc Error")
