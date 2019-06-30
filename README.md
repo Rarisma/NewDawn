@@ -1,9 +1,9 @@
 # Path of a New Dawn
-You are Lucas an average man who is living an average day until the malfunction happens...
+You are Lucas, an average man who is living an average day until a strange malfunction happens...
 
 ## Installation
 1) Get the latest version of python if needed (https://www.python.org/downloads/)
-2) Download the latest stable build in the releases tab 
+2) Download the latest stable build in the releases tab (Getting the file from branches might be unstable )
 3) Run NewDawn.py
 
 ## About NewDawn
