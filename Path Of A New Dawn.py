@@ -1,5 +1,3 @@
-Ver = "0.0.1"         #Version (Doesn't really matter but helps keep track)
-Debug = 0             #Debug varaible (0-Disabled 1-Enabled)
 loop = 1              #Set to anything but 1 to cause problems
 Select=""             #Overwritten by player choice
 #Player Variables
@@ -7,32 +5,27 @@ Select=""             #Overwritten by player choice
 Shotgun = 0           #Shotgun (Found in C2)
 Keys = 1              #Keys    (Found in C2)
 C3Code = 0            #Code in car (Found in C3R)
-#Error codes
-#Error 00- No more code to execute. (Stops program from closing when there is a error or no more code)
-#Error 01- End of chapter (Like error 00 but it's confirmed not to be a error) Ironic right?
-#Chapter 1 start
-def C1Start():
-    print("Do you know how to play? (Y/N)")
+
+def CSMenu():
+    print("Path of a New Dawn\n\nNew game\nLoad")
     Select = input()
     Select=Select.upper()
-    if Select=="N":
-        print("Things you can do are under options.")
-        print("")
-        C1Intro()
-    elif Select=="Y":
-        print("")
-        C1Intro()
-    elif Select == "DEBUG":
-        Debug()
-    else:
-        C1Start()
-
-def Debug():
-    print("Welcome to debug")
     print("")
-    print("Chapter 2 R/E")
-    print("Chapter 3 R/E")
-    print("Chapter 4 R/E")
+    if Select == "NEW GAME":
+        C1Intro()
+    elif Select == "LOAD":
+        print("Not available right now.\n")
+        CSMenu()
+    elif Select == "DEBUG":
+        CSDebug()
+    elif Select == "CUSTOM CMD":
+        input("PRESS ENTER")
+        C6Storage()
+    else:
+        CSMenu()
+
+def CSDebug():
+    print("Welcome to debug\n\nChapter 2 R/E\nChapter 3 R/E\nChapter 4 R/E\nChapter 5 A\B\nChapter 6")
     Select = input()
     Select=Select.upper()
     if Select == "CHAPTER 2 E":
@@ -47,9 +40,16 @@ def Debug():
         C4RStart()
     elif Select == "CHAPTER 4 E":
         C4EStart()
-        
+    elif Select == "CHAPTER 5 A":
+        C5StartA()
+    elif Select == "CHAPTER 5 B":
+        C5StartB()
+    elif Select == "CHAPTER 6":
+        C6Start()
+#Essentials End
+#Chapter 1 start
 def C1Intro():
-    print("My name is lucas and I live in the lucian falls apartmant building.\nMy life is pretty average but I have a great job.\nWhat was that nightmare? And why hasn't my alarm clock woke me up?\nI'm going to be late for work\n\nOptions:\nInspect clock\nInspect plugs\nLeave bedroom")
+    print("My name is lucas and I live in the lucian falls apartmant building.\nMy life is pretty average but I have a great job.\nWhat was that nightmare? And why hasn't my alarm clock woke me up?\nI'm going to be late for work\n\nOptions:\nInspect plugs\nLeave bedroom")
     Select = input()
     Select=Select.upper()
     print("")
@@ -64,13 +64,7 @@ def C1Intro():
         C1Intro()
 
 def C1Plugs():
-    print("You check the plugs.")
-    print("Did the wire break?")
-    print("I'll buy a new one after work.")
-    print("I have 30 minutes until I have to go to work.")
-    print("")
-    print("Options:")
-    print("Leave bedroom")
+    print("You check the plugs.\nDid the wire break?\nI'll buy a new one after work.\n\nI have 30 minutes until I have to go to work.\n\nOptions:\nLeave bedroom")
     Select = input()
     Select = Select.upper()
     print("")
@@ -81,13 +75,7 @@ def C1Plugs():
         C1Plugs()
 		
 def C1Clock():
-    print("You look at the clock, it seems 30 minutes slow.")
-    print("What is the current time?")
-    print("It doesn't matter as you need to go to work")
-    print("Work starts in 30 minutes.")
-    print("")
-    print("Options:")
-    print("Leave bedroom")
+    print("You look at the clock, it seems 30 minutes slow.\nWhat is the current time?\nIt doesn't matter as you need to go to work\nWork starts in 30 minutes.\n\nOptions:\nLeave bedroom")
     Select = input()
     Select=Select.upper()
     print("")
@@ -98,11 +86,7 @@ def C1Clock():
         C1Plugs()
 
 def C1Bedroom():
-    print("I still have some time before I need to leave should I watch the TV or the Radio")
-    print("")
-    print("Options:")
-    print("Watch TV")
-    print("Listen to radio")
+    print("I still have some time before I need to leave should I watch the TV or the Radio\n\nOptions:\nWatch TV\nListen to radio")
     Select = input()
     Select=Select.upper()
     print("")
@@ -115,14 +99,7 @@ def C1Bedroom():
         C1Bedroom()
 
 def C1Radio():
-    print("You turn on the radio.")
-    print("You hear somthing about a mass computer malfunction.")
-    print("They then advise against using anything that relys on computers.")
-    print("The audio cuts out to white noise.")
-    print("")
-    print("Options:")
-    print("Look out the window")
-    print("Leave room")
+    print("You turn on the radio.\nYou hear somthing about a mass computer malfunction.\nThey then advise against using anything that relys on computers.\nThe audio cuts out to white noise.\n\nOptions:\nLook out the window\nLeave room")
     Select = input()
     Select = Select.upper()
     print("")
@@ -135,14 +112,7 @@ def C1Radio():
         C1Radio()
         
 def C1TV():
-    print("Most of the picture is blurred out, however the audio is clear.")
-    print("It says not to use any electronics as they are malfunctioning.")
-    print("All of a sudden the audio cuts off.")
-    print("You wonder what to do...")
-    print("")
-    print("Options:")
-    print("Look out the window")
-    print("Leave room")
+    print("Most of the picture is blurred out, however the audio is clear.\nIt says not to use any electronics as they are malfunctioning.\nAll of a sudden the audio cuts off.\nYou wonder what to do...\n\nOptions:\nLook out the window\nLeave room")
     Select = input()
     Select = Select.upper()
     print("")
@@ -155,46 +125,29 @@ def C1TV():
         C1TV()
         
 def C1Window():
-    print("You look out of the window.")
-    print("You see a huge riot down the street.")
-    print("You wonder what to do about the riot.")
-    print("")
-    print("Options:")
-    print("Leave room")
+    print("You look out of the window.\nYou see a huge riot down the street.\nYou wonder what to do about the riot.\n\nOptions:\nLeave")
     Select = input()
     Select = Select.upper()
     print("")
-    if Select == "LEAVE ROOM":
+    if Select == "LEAVE":
         C1Outside()
     else:
         print("Invailid command.")
         C1Window()
         
 def C1Outside():
-    print("You leave the apartment building.")
-    print("You can see a group of people down the road.")
-    print("You should aproach them quietly.")
-    print("")
-    print("Options:")
-    print("Aproach the group")
+    print("You leave the apartment building.\nYou can see a group of people down the road.\nYou should aproach them quietly.\n\nAproach group")
     Select = input()
     Select = Select.upper()
     print("")
-    if Select == "APROACH THE GROUP":
+    if Select == "APROACH GROUP":
         C1Mob()
     else:
         print("Invalid command")
         C1Outside()
 
 def C1Mob():
-    print("You aproach the group of people near a car.")
-    print("They are all armed unfortunetly.")
-    print("However you see a gun with a suppressor.")
-    print("You decide you should keep the suppressor on for now.")
-    print("")
-    print("Options:")
-    print("Attack them")
-    print("Hijack the car")
+    print("You aproach the group of people near a car.\nThey are all armed unfortunetly.\nHowever you see a gun with a suppressor.\nYou decide you should keep the suppressor on for now.\n\nOptions:\nAttack them\nHijack the car")
     Select = input()
     Select = Select.upper()
     print("")
@@ -207,38 +160,23 @@ def C1Mob():
         C1Mob()
 
 def C1Attack():
-    print("You decide to attack the group.")
-    print("You run to cover and shoot a guy in the leg.")
-    print("The group run across the street and hide in a house.")
-    print("It would probably be better to hijack the car.")
-    print("")
-    print("Options:")
-    print("Hijack car")
-    print("Attack the house")
+    print("You decide to attack the group.\nYou run to cover and shoot a guy in the leg.\nThe group run across the street and hide in a house.\nIt would probably be better to hijack the car.\n\nOptions:\nHijack car\nAttack the house")
     Select = input()
     Select = Select.upper()
     print("")
     if Select == "HIJACK CAR":
         C1Hijack()
     elif Select == "ATTACK THE HOUSE":
-        print("You run towards the house and someone throws a molotov.")
-        print("You die from third degree burns.")
-        print("You died.")
-        input("press enter to continue.")
+        print("You run towards the house and someone throws a molotov.\nYou die from third degree burns.\nYou died\npress enter to continue.")
+        input("")
         C1intro()
     else:
         print("Invalid command")
         C1Attack()
         
 def C1Hijack():
-    print("You shoot towards a house to cause a distraction.")
-    print("They run into a shop.")
-    print("You smash the window of the car and the keys are already there")
-    print("You start the car and  get ready drive away.")
+    print("You shoot towards a house to cause a distraction.\nThey run into a shop.\nYou smash the window of the car and the keys are already there.\nou start the car and  get ready drive away.\nYou start the car and  get ready drive away.\n\nOptions:\nDrive away\nSearch car")
     print("")
-    print("Option:")
-    print("Drive away")
-    print("Search car")
     Select = input()
     Select = Select.upper()
     print("")
@@ -327,13 +265,7 @@ def C1Library():
         C1Library()
 
 def C1EnterLibrary():
-    print("You enter the library")
-    print("It looks abandoned.")
-    print("There is some pizza on the desk.")
-    print("It's getting late.")
-    print("You decide to go to sleep.")
-    print("")
-    print("End of chapter...")
+    print("You enter the library\nIt looks abandoned.\nThere is some pizza on the desk and getting late.\nYou decide to go to sleep.\n\nEnd of chapter...")
     C2EStart()
 #Chapter 1 end
 #Chapter 2R Start
@@ -1500,7 +1432,7 @@ def C4RBITKey():
         C4RBITKey()
 
 def C4RBITKey1():
-    print("You walk out and tell Richard that it was easy.\nHe looks suprised but tells you that you need to leave.\nRichard says he has a grenade and he throws it into the server room.\nYou both run out.\n\nRichard tells you that you need to get to the lift.\n\nOptions:\nGo to lift.")
+    print("You walk out and tell Richard that it was easy.\nHe looks suprised but tells you that you need to leave.\nRichard says he has a grenade and he throws it into the server room.\nYou both run out.\n\nRichard tells you that you need to get to the lift.\n\nOptions:\nGo to lift")
     Select = input()
     Select = Select.upper()
     print("")
@@ -1512,6 +1444,7 @@ def C4RBITKey1():
 
 def C4REnd():
     print("You run to the elevator and scan the keycard.\nAll of the buttons light up.\nRichard presses a low button.\nThe door opens and you see Emma?\n\nEND OF CHAPTER")
+    C5StartA()
 #C4R End
 #C4E Start
 
@@ -1662,7 +1595,7 @@ def C4B2Engineer():
 
 def C4Surrender():
     print("You put your hand up and you are arrested.\nEmma trys to escape but is also arrested.\n\nEND OF CHAPTER")
-    #C5 MARKER
+    C5StartB()
 
 def C4Fighton():
     print("Emma hands you a smoke grenade and a molotov cocktail.\nYou put your hands up to surrender but you roll the smoke grenade.\n\nThe grenade explodes and you and emma jump over the table.\nYou turn arround and light and throw the molotov.\n\nAfter waiting for the flames to die out you grab a key card and run to the elevator.\n\nOptions:\nLeave")
@@ -1676,15 +1609,379 @@ def C4Fighton():
         C4Fighton()    
 
 def C4EEND():
-    print("You run to the elevator and slam B3.\nThe lights suddenly turn off and the doors open.\n\nEND OF CHAPTER.")
+    print("You run to the elevator and slam B2.\nThe lights suddenly turn off and the doors open.\n\nEND OF CHAPTER.")
+    C5StartA()
+    
+def C5StartA():
+    print("The doors open and you are surrounded by guards.\n\nEmma hits another button and the elevator shoots up to B1.\nThe doors open and the floor is empty.\nRichard taps you on the shoulder and tells you to follow him.\n\nOptions:\nFollow Richard")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "FOLLOW RICHARD":
+        C5Follow()
+    else:
+        print("Invalid Command")
+        C5StartA()
+        
+def C5StartB():
+    print("You are taken to the elevator.\nAs the the doors open Emma throws a grenade and runs.\nYou run and you eventually manage to find the stairs.\n\nYou reach B2 but the you notice the elevator is surrounded so you run to B1.\n\nAfter some more running you eventually reach B1 and after looking around for awhile Richard taps you on the shoulder.\nHe gives you a gun and he tells you not to lose it this time.\nHe then tells you to follow him.\n\nFollow Richard")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "FOLLOW RICHARD":
+        C5Follow()
+    else:
+        print("Invalid Command")
+        C5StartB() 
+
+def C5Follow():
+    print("You follow Richard and he leads you to a large room.\nHe tells you that it's crucial to get some answers from the Vice President.\n\nYou tell him that you are ready.\n\nOptions:\nEnter")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "ENTER":
+        C5Conference()
+    else:
+        print("Invalid Command")
+        C5Follow()     
+
+def C5Conference():
+    print("Richard counts down from 5.\nYou run in and point a gun at the VP.\nSome guards run at you but Richard shoots a warning shot and they stop.\n\nYou tell everyone to leave the room.\nMost people comply but some stand still.\nYou decide to shout at them to get down.\n\nRichard walks towards the VP and starts to question him.\n\nAfter awhile Richard tells Emma to pull the fire alarm.\nRichard tells everyone to go.\n\nOptions:\nEscape")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "ESCAPE":
+        C5Escape()
+    else:
+        print("Invalid Command")
+        C5Conference() 
+
+def C5Escape():
+    print("You ask Richard how to escape.\nRichard says the enterance is above you.\nHe runs up the stairs.\nHe runs back and he says it's blocked.\n\nEmma says there is a car downstairs.\n\nOptions:\nGo downstairs")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "GO DOWNSTAIRS":
+        C5Downstairs()
+    else:
+        print("Invalid Command")
+        C5Escape() 
+
+def C5Downstairs():
+    print("You run downstairs and all of the door have been disarmed but the elevators are disabled.\n\nEmma gets in the car and it starts automatically.\nRichard tells you it's a self driving car prototype.\n\nHe looks at a tablet and puts in a location of a village.\n\nThe car starts driving and it exits the garage.\n\nOptions:\nLeave.")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LEAVE":
+        C5Outside()
+    else:
+        print("Invalid Command")
+        C5Downstairs()
+
+def C5Outside():
+    print("The car leaves the bunker.\nYou immedietly feel the cold wind.\n\nRichard starts explaining that the rocket is just the start of the plan.\nRichard then reveals that he used to work on the rocket but he abandoned it about 2 weeks ago.\nHe tells you that there is a kill switch but he needs time to get it ready.\n\nHe explains that the company is trying to colonise mars but decide against it for some reason.\n\nThe car announces that manual drive has been disabled.\nIt then announces that the car has a critcial system failure.\n\nEmma stops the car and you decide to walk to a nearby village\n\nOptions:\nStart walking")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "START WALKING":
+        C5Walk()
+    else:
+        print("Invalid Command")
+        C5Outside()
 
 
+def C5Walk():
+    print("You start walking towards a village.\nEmma starts questioning Richard about his job.\nIt turns out that he is a aerospace engineer.\nHe got fired for probing the rocket and it causing an earthquake.\nHe says its programmed to disrupt the country.\nHe doesn't know why though.\n\nYou eventually reach the village.\n\nOptions:\nLook around")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LOOK AROUND":
+        C5Village()
+    else:
+        print("Invalid Command")
+        C5Walk()
+
+def C5Village():
+    print("You look around the village.\nIt's empty, nobody is in sight.\nMost of the doors have been covered with snow.\n\nYou all decide that you should get to shelter quickly.\nAfter looking around you see several buildings.\n\nOptions:\nVillage Hall\nOffice\nGarage\nPC Shop")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "VILLAGE HALL":
+        C5Shelter()
+    elif Select == "OFFICE":
+        C5Shelter()
+    elif Select == "GARAGE":
+        C5Shelter()
+    elif Select == "PC SHOP":
+        C5PCShop()
+    else:
+        print("Invalid Command")
+        C5Village() 
+
+def C5Shelter():
+    print("You run inside.\nYou quickly realise it's getting late.\nRichard finds some sleeping bags and Emma around for some food.\n\nYou decide to look at a map.\nRichard has already circled a abandoned building,\nYou decide to leave the map alone.\n\nOptions:\nAsk questions\nSleep")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "ASK QUESTIONS":
+        C5SQuestions()
+    elif Select == "SLEEP":
+        C5Sleep()
+    else:
+        print("Invalid Command")
+        C5Shelter()
+
+def C5PCShop():
+    print("You walk upto the PC Shop and Richard tells you to leave as it will kill you.\nEmma has found an empty office anyway.\n\nHowever the door is snowed in.\n\nYou freeze to death.\n\nGame over?") #Until you defrost.
+    input("Press enter to go back.")
+    C5Walk()
+
+def C5SQuestions():
+    print("You decide to ask Emma how she is.\nEmma says she is tierd.\n\nYou ask Richard the same question.\nHe says he is exhausted.\n\nYou decide to go to bed.")
+    C5Sleep()
+
+def C5Sleep():
+    print("Emma puts 2 bowls of soup on the table.\nYou drink the soup while watching the rampant blizard.\nAfter that you lay down and go to sleep.\n\nOptions:\nWake up")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "WAKE UP":
+        C5Wake()
+    else:
+        print("Invalid command.")
+        C5Sleep()
+
+def C5Wake():
+    print("You wakeup and you notice Emma and Richard are missing.\nYou look around and you eventually find them both downstairs.\n\nYou quickly realise you have been snowed in.\n\nOptions:\nShovel snow")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "SHOVEL SNOW":
+        C5Snow()
+    else:
+        print("Invalid command.")
+        C5Wake()
+    
+def C5Snow():
+    print("you all start to shovel snow.\nA few hours pass but you eventually leave the office.\nRichard tells you that there is an abandoned lab about a Killometer from here.\n\nOptions:\nStart Walking")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "START WALKING":
+        C5SnowWalk()
+    else:
+        print("Invalid command.")
+        C5Snow()    
+
+def C5SnowWalk():
+    print("You start walking however the blizard seems to be clearing up.\nThe old lab is in sight and Richard starts explaining the lab is actually a old computer lab.\n\nYou eventually get there.\n\nEnter computer lab")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "ENTER COMPUTER LAB":
+        C5END()
+    else:
+        print("Invalid command.")
+        C5SnowWalk()        
+
+def C5END():
+    print("You enter the computer lab and all of the screens suddenly light up.\nThey just unlock, with no password it seems they have been recently used but the lab is empty.\n\nEmma finds a car but the battery is dead.\n\nRichard plugs the battery in and it starts to charge.\nThe battery will take 5/6 hours to charge.\nYou decide to lay down for awhile.\n\nEND OF CHAPTER.")
+    C6Start()
+
+def C6Start():
+    print("Richard wakes you and he tells you that the car is ready.\nThe garage door slowly opens but you hear a loud crash.\nIt seems someone is here.\n\nYou stop the car and get out and you see the lab is being raided, but by who?,\nRichard grabs Emma and jumps into the car.\nYou frantically run to the car.\n\nOptions:\nShoot back\nDrive faster")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "SHOOT BACK":
+        C6Shoot()
+    elif Select == "DRIVE FASTER":
+        C6Drive()
+    else:
+        print("Invalid command.")
+        C6Start()
+
+def C6Shoot():
+    print("You shoot back and you seem to ignite some petrol.\nThe lab is set on fire but it seems to be quickly extinguished.\n\nOptions:\nKeep driving")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "KEEP DRIVING":
+        C6Drive()
+    else:
+        print("Invalid command.")
+        C6Shoot()
+    
+def C6Drive():
+    print("You start driving and push the pedal to go faster.\nHowever some motorbikes start following you.\nYou start shooting at the bikes however Richard starts franticly typing into the cars console and the car starts speeding up.\nEmma passes you a grenade launcher.\n\nIt's quite small and you start shooting.\nYou shoot and most of the bikes explode.\nHowever the car starts to slow down and some one shoots the tire with a machine gun.\nYou decide to jump from the car.\n\nOptions:\nLook around")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LOOK AROUND":
+        C6Look()
+    else:
+        print("Invalid command.")
+        C6Drive()
+
+def C6City():
+    print("You reach the city but some motorbikes shoot out your tire.\nYou panic and jump out the car.\n\nOptions:\nLook Around")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LOOK AROUND":
+        C6Look()
+    else:
+        print("Invalid command.")
+        C6City()
+
+def C6Look():
+    print("You look around and you see a house.\nYou run towards the house.\nAfter awhile you see the motorbikes speed past.\n\nYou wonder what happened to Emma and Richard.\n\nOptions:\nWait")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "WAIT":
+        C6Time()
+    else:
+        print("Invalid command.")
+        C6Look()
+
+def C6Time():   #TIME       GENTLEMEN       PLEASE.
+    print("You wait awhile and it seems nobody else is coming.\n\nYou see a huge building in the distance.\nThis must be the CEO's buildings.\nThey are probably at the top floor.\n\nHowever you need a car to get there.\n\nOptions:\nLook for a car")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LOOK FOR A CAR":
+        C6Street()
+    else:
+        print("Invalid command.")
+        C6Time()    
+
+def C6Street():
+    print("You walk down the street.\nThey are completly empty, what happened here?\n\nYou wonder why you have saw almost nobody.\nYou find multiple cars in a abandoned garage.\nYou pick a small motobike.\nAfter grabbing the keys you drive towards the building.\n\nOptions:\nDrive")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "DRIVE":
+        C6Drive()
+    else:
+        print("Invalid command.")
+        C6Street()    
+
+def C6Drive():
+    print("You start driving towards the building.\nYou notice how the roads are completly barren.\nYou eventually arrive at the city.\nHowever you see someone guarding the enterance.\nThe security seems supprisingly lax.\n\nOptions:\nShoot him")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "SHOOT HIM":
+        C6CEOATK()
+    else:
+        print("Invalid command.")
+        C6Drive()        
+
+def C6CEOATK():
+    print("You drive towards him and shoot him.\nAfter getting off the bike you find that all the doors have been boarded up.\nYou get a pistol from the guy but they don't have a key.\nYou should look for another enterance.\n\nOptions:\nLook for an enterance")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "LOOK FOR AN ENTERANCE":
+        C6Enterance()
+    else:
+        print("Invalid command.")
+        C6CEOATK()        
+
+def C6Enterance():
+    print("You look for an enterance and you see some people are breaking into a house.\nMaybe they will have somthing to help you to break into the building.\n\nOptions:\nAproach")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "APROACH":
+        C6Fight()
+    else:
+        print("Invalid command.")
+        C6Enterance()        
+
+def C6Fight():
+    print("You decide you can either shoot them or blow up the motorbike\n\nOptions:\nMotorbike\nShoot them")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "MOTORBIKE":
+        C6MotoFight()   
+    elif Select == "SHOOT THEM":
+        C6Jonothan()
+    else:
+        print("Invalid command.")
+        C6Fight()
+
+def C6MotoFight():
+    print("You start driving towards them and you jump from the bike.\nThe bike explodes and the house is englufed in fire.\nAfter the fire dies down you find a axe!.\n\nOptions:\nBreak in")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "BREAK IN":
+        C6BreakIn()
+    else:
+        print("Invalid command.")
+        C6MotoFight()        
+
+def C6Jonothan():
+    print("You walk towards them and you start shooting them.\bUnfortunetly you realise that you are outgunned.\nThey thow a grenade at you but they miss.\nYou quickly leave.\n\nAfter waiting a for awhile you realise that the group seems to have left.\nYou eventually find a axe.\n\nOptions:\nBreak in")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "BREAK IN":
+        C6BreakIn()
+    else:
+        print("Invalid command.")
+        C6Jonothan()
+        
+def C6BreakIn():
+    Select = input()
+    Select = Select.upper()
+    print("")
+    print("You break in to the building with the axe.\n\nThe floor is entirely barren but there is a elevator.\nYou enter the elevator\n\nOptions\nFloor A\nFloor B\nStorage floor")
+    if Select == "FLOOR A":
+        C6FA()
+    elif Select == "FLOOR B":
+        C6FB()
+    elif Select == "STORAGE FLOOR":
+        C6Storage()
+    else:
+        print("Invalid command.")
+        C6BreakIn()
+
+def C6FA():
+    print("You decide to go to floor A.\nIt seems that this floor is full of old documents.\nYou decide to read a few.\n\nLucian Falls floor plans:\nIt describes Lucian Falls in great detail however it seems that the current lucian falls is not finished.\n\nThe other documents are anout cyber secuity, Phone number and law dpcuments.\n\nYou should see what's in the storage room\n\nOptions:\nFloor B\nStorage floor")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "FLOOR B":
+        C6FB()
+    elif Select == "STORAGE FLOOR":
+        C6Storage()
+    else:
+        print("Invalid command.")
+        C6FA()
+
+def C6FB():
+    print("You go to floor B.\nThe floor seems to be full of money laundering equiment.\nYou decide to damage some of it.\nYou should go to floor A\n\nOptions:\nFloor A\nStorage room")
+    Select = input()
+    Select = Select.upper()
+    print("")
+    if Select == "FLOOR A":
+        C6FA()
+    elif Select == "STORAGE FLOOR":
+        C6Storage()
+    else:
+        print("Invalid command.")
+        C6FB()
+
+def C6Storage():
+    print("You go to storage floor.\nYou reload your pistol and you realise you are on your last clip.\n\nThe doors open and you are quickly spotted.\nSomeone reaches for a radio but you quickly shoot them\nThe radio heard the gunshot.\nEveryone knows you are here.\nAt the other end of the room you see a large cargo elevator.\nYou run to the elevator but you are quickly surrounded\n\nEND OF CHAPTER")
+    input()
 
 
 
 #Starting Function
-C1Start()
-print("Error 00 - Misc Error")
-input()
-C1Intro()
+CSMenu()
 #Stops program from crashing/closing due to an error or complete execution
