@@ -8,4 +8,4 @@ You are Lucas, an average man who is living an average day until a strange malfu
 
 ## About NewDawn
 
-Path of a new dawn was a project started in september 2018 and was written in Small Basic but is currently being rewritten in python. The story is arround 50-60% complete however due the rewrite only chapter 1 is availble.
+Path of a New Dawn was a project started in September 2018 and concluded in August 2019 and the story is complete and was created by TMAltair and CakesBaked.
