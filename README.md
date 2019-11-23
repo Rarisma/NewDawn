@@ -11,4 +11,5 @@
 
 Path of a New Dawn was a project started in September 2018 and concluded in August 2019 and the story is complete and was created by TMAltair and CakesBaked.
 
-# Epoch 1608055200 GMT
+
+Epoch 1608055200 GMT
