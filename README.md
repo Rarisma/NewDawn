@@ -1,5 +1,6 @@
 # Path of a New Dawn
-You are Lucas, an average man who is living an average day until a strange malfunction happens...
+
+Epoch 1608055200 GMT
 
 ## Installation
 1) Get the latest version of python if needed (https://www.python.org/downloads/)
