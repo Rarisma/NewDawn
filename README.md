@@ -1,6 +1,6 @@
 # Path of a New Dawn
 
-Epoch 1608055200 GMT
+
 
 ## Installation
 1) Get the latest version of python if needed (https://www.python.org/downloads/)
@@ -10,3 +10,5 @@ Epoch 1608055200 GMT
 ## About NewDawn
 
 Path of a New Dawn was a project started in September 2018 and concluded in August 2019 and the story is complete and was created by TMAltair and CakesBaked.
+
+# Epoch 1608055200 GMT
