@@ -10,4 +10,4 @@ NewDawn uses a file based system to load and edit rooms and it will eventually i
 ## What is NewDawn?
 Path of a New Dawn was a project started in September 2018 and concluded in August 2019 the main focus of the project was to learn python and to develop a text based game (as I have no graphical skills).
 
-###### For updates please view the [roadmap](https://github.com/Rarisma/NewDawn/wiki) tab
+###### [For updates please view the roadmap](https://github.com/Rarisma/NewDawn/wiki) tab
