@@ -109,7 +109,7 @@ def DawnDisplay():
 
     FileReader = open(TempPath + "\\L.txt","r")#L.txt stores the path to the option rooms
     TempText2 = FileReader.readlines()
-    print(TempText2                                                                                                                                 )
+    print(TempText2)
     FileReader.close()
     
     OptionText = ""
@@ -122,15 +122,45 @@ def DawnDisplay():
         a += 1
 
     a= 0
-    print(len(Options) - 1)
+    os.system("cls")
     while a <= len(Options) - 1:
-        print(OptionsText)
-        OptionText = "\n" + str(a) + ") " + Options[a]
+        OptionText = OptionText + "\n" + str(a + 1) + ") " + Options[a]# We add one to a to make the numbers are in order on a keyboard (as 0 is last on a keyboard it its the final number to be displayed)
         a += 1
 
-    print(str(Options) + "\n" + str(Links))
-
     print(Text + "\nOptions:" + OptionText)
-    time.sleep(5)
-
+    time.sleep(1.5)
+    if len(Options) - 1 <= 9: #0-9 options are allowed meaning that rooms can have upto 10 options, another option will be allowed later, giving infinite options
+        loop = 1
+        while loop == 1:
+            if keyboard.is_pressed("1"):    #Starts at 1 as 1 appears before 0 on the keyboard
+                NextRoom = Links[0] + "\\"
+                loop = 0
+            elif keyboard.is_pressed("2") and 1 <= len(Links) - 1: #Each line includes error checking to make sure an invalid input can't be passed through
+                NextRoom = Links[1] + "\\"
+                loop = 0
+            elif keyboard.is_pressed("3") and 2 <= len(Links) - 1:
+                NextRoom = Links[2] + "\\"
+                loop = 0
+            elif keyboard.is_pressed("4") and 3 <= len(Links) - 1:
+                NextRoom = Links[3] + "\\"
+                loop = 0
+            elif keyboard.is_pressed("5") and 4 <= len(Links) - 1:
+                NextRoom = Links[4] + "\\"
+                loop = 0
+            elif keyboard.is_pressed("6") and 5 <= len(Links) - 1:
+                NextRoom = Links[5] + "\\"
+                loop = 0
+            elif keyboard.is_pressed("7") and 6 <= len(Links) - 1:
+                NextRoom = Links[6] + "\\"
+                loop = 0
+            elif keyboard.is_pressed("8") and 7 <= len(Links) - 1:
+                NextRoom = Links[7] + "\\"
+                loop = 0
+            elif keyboard.is_pressed("9") and 8 <= len(Links) - 1:
+                NextRoom = Links[8] + "\\"
+                loop = 0
+            elif keyboard.is_pressed("0") and 9 <= len(Links) - 1:
+                NextRoom = Links[9] + "\\"
+                loop = 0
+        DawnDisplay()
 main() #This is a bit of trick to force python to read all variables and functions into memory to allow functions to be called anywhere
