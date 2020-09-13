@@ -1,0 +1,4 @@
+You look at the clock, it seems 30 minutes slow.
+What is the current time?
+Oh it's $CurrentTime$
+It doesn't matter as you need to go to work 
