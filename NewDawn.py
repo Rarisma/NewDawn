@@ -104,12 +104,10 @@ def DawnDisplay():
     
     FileReader = open(TempPath + "O.txt","r")#O.txt stores the names options
     TempText = FileReader.readlines()
-    print(TempText)
     FileReader.close()
 
     FileReader = open(TempPath + "\\L.txt","r")#L.txt stores the path to the option rooms
     TempText2 = FileReader.readlines()
-    print(TempText2)
     FileReader.close()
     
     OptionText = ""
