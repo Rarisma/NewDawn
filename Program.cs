@@ -68,6 +68,7 @@ namespace NewDawn_Engine_CSharp
             string RoomPath = SysVars.path + "Data\\" + SysVars.EngineInfo[0] + "\\" + SysVars.EngineInfo[1] + "\\" + SysVars.EngineInfo[2] + "\\"; //Stores the path to the current room
             string[] OptionText = File.ReadAllLines(RoomPath + "O.txt"); //loops and prints each text with the id of the command
             string[] Links = File.ReadAllLines(RoomPath + "L.txt");  //Reads L.txt
+            int UserSelect;
             Console.Clear();
 
             if (Links.Length != OptionText.Length)//Checks room is valid
@@ -83,7 +84,6 @@ namespace NewDawn_Engine_CSharp
 
             Thread.Sleep(500);
             bool Loop = true; // makes the code below loop until valid input is registered
-            int UserSelect;
             while (Loop == true)
             {
                 string Select = Console.ReadLine();

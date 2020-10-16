@@ -1,0 +1,4 @@
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\netcoreapp3.1\NewDawn.csprojAssemblyReference.cache
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\netcoreapp3.1\NewDawn.AssemblyInfoInputs.cache
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\netcoreapp3.1\NewDawn.AssemblyInfo.cs
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\netcoreapp3.1\NewDawn.csproj.CoreCompileInputs.cache
