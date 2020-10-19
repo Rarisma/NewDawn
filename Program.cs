@@ -4,14 +4,16 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 using System.IO;
+using System.Linq;
 using System.Threading;
 
 namespace NewDawn_Engine_CSharp
 {
     public class SysVars
     {
-        public static string[] EngineInfo = { "Example Game", "1", "Start", "0" }; // Initalises EngineInfo {0 - Game Name 1-ChapterID, 2-RoomID, 3-OptionType (0 is over 10 options, 1 is less than 10)
+        public static string[] EngineInfo = { "Example Game", "1", "Start", "0"}; // Initalises EngineInfo {0 - Game Name 1-ChapterID, 2-RoomID, 3-OptionType (0 is over 10 options, 1 is less than 10)
         public static string path = AppDomain.CurrentDomain.BaseDirectory; //Gets the executing directory
+        public static char SlashType = path.Last(); //Will get the type of slash (Prevents crashing on Unix Based system as / is used instead of \)
     }
 
     class Program
@@ -23,7 +25,7 @@ namespace NewDawn_Engine_CSharp
             string StrInput = "0"; //Stores the users option as a string but gets converted to IntInput
             int IntInput = 0; // Stores the user option as a Interger
 
-            Console.WriteLine("NewDawn Engine 0.1.5 (C# Edition)\n\n1) Load Game\nE) Quit"); //Prints menu 
+            Console.WriteLine("NewDawn Engine 0.1.5 (C# Edition)\n\n1) Load Game\nE) Quit" + SysVars.SlashType); //Prints menu 
             bool mainloop = true;
             while (mainloop == true)
             {
@@ -34,7 +36,7 @@ namespace NewDawn_Engine_CSharp
                     string[] GameDirs;
                     try
                     {
-                        GameDirs = Directory.GetDirectories(path + "\\Data"); // This gets the full path to each directory in data
+                        GameDirs = Directory.GetDirectories(path + SysVars.SlashType + "Data"); // This gets the full path to each directory in data
                     }
                     catch
                     {
@@ -42,7 +44,7 @@ namespace NewDawn_Engine_CSharp
                         Thread.Sleep(2147483647); //Delays console more or less perminantly
                     }
                     
-                    GameDirs = Directory.GetDirectories(path + "\\Data"); // This gets the full path to each directory in data
+                    GameDirs = Directory.GetDirectories(path + SysVars.SlashType + "Data"); // This gets the full path to each directory in data
                     for (int i = 0; i <= GameDirs.Length - 1; i++) //Prints the name of every directory in /data/
                     { //Prints and itterates though the name of each directory
                         Console.WriteLine(i + ") " + Path.GetFileName(GameDirs[i])); //Path.GetFileName gets the name of the final folder in a path
@@ -77,7 +79,7 @@ namespace NewDawn_Engine_CSharp
 
         static void Engine() // Runs the game itself
         {
-            string RoomPath = SysVars.path + "Data\\" + SysVars.EngineInfo[0] + "\\" + SysVars.EngineInfo[1] + "\\" + SysVars.EngineInfo[2] + "\\"; //Stores the path to the current room
+            string RoomPath = SysVars.path + "Data" + SysVars.SlashType + SysVars.EngineInfo[0] + SysVars.SlashType + SysVars.EngineInfo[1] + SysVars.SlashType + SysVars.EngineInfo[2] + SysVars.SlashType; //Stores the path to the current room
             Console.Clear(); // Clears output each time a room is left
 
             if (File.Exists(RoomPath + "T.txt") && File.Exists(RoomPath + "O.txt") && File.Exists(RoomPath + "L.txt")) // Checks that all rooms exist and throws an error to check
