@@ -1,4 +1,4 @@
-﻿// NewDawn Engine C# Edition 0.1.5 by Rarisma
+﻿// NewDawn Engine C# Edition 0.1.2 by Rarisma
 // And then I saw him, torch in hand 
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -25,7 +25,7 @@ namespace NewDawn_Engine_CSharp
             string StrInput = "0"; //Stores the users option as a string but gets converted to IntInput
             int IntInput = 0; // Stores the user option as a Interger
 
-            Console.WriteLine("NewDawn Engine 0.1.5 (C# Edition)\n\n1) Load Game\nE) Quit" + SysVars.SlashType); //Prints menu 
+            Console.WriteLine("NewDawn Engine 0.1.2 (C# Edition)\n\n1) Load Game\nE) Quit" + SysVars.SlashType); //Prints menu 
             bool mainloop = true;
             while (mainloop == true)
             {
