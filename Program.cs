@@ -1,24 +1,29 @@
 ﻿//NewDawn Engine C# Edition by Rarisma
-//Coding in the booth with a tripple fat goose hazmat suit, bubble sort and subnet mask too and I don't think thats what they ment about Data Interception - Code To Be Executed by
-
+//The Heir to the code throne By Rarisma; It was a mistake to code here\n\nYour code sucks dick\n\nA splash of code to seal the deal\n\nCounsel of code\n\nAll-consuming Lord of code\n\nRarisma. Heir of the code Throne\nSwallow your rod\ncode-suck God\ncode-Messiah\nGive me the code Scar\n\nTight fuckable dickhole\n\ncode-cruiser\n\nHow long is your code, exactly?\nMan, shut the fuck up nerd\nCode-dunked by my white fat cock\nYour GF's pussy tastes like my code\nI actually beat a nerd to death\nTired of coding in nerd pussy\nCongratulations, Future Codelords!\nI shape fates and I rm rf dudes\nGet paid money to write in Php\nMaking this much code ain’t easy\n\nExecution by excessive code\nYou gonna get published and compiled\nRussian Roulette with a code-Gun\nYou've got one sick dick, bitch\n\ncode-drooling, moaning slut\nStuff some code in my butt\nSuck my big fat juicy ballsack\nYou will suck code from my dick\nAss is running on code-vapors\nHands off the code stash, bubs\nSpeedy code-dealer\nFUCKED CHILD\nJust chillin'\ncode villain\n\ncode all ye faithful\n\ncode-fucked God\nIn his asshole\ncode proud, code loud\nFucked up? Now, you’re code\nMake bank, smoke dank\nStop the code ocean\nSlurp code\nThen, I burp code\nLiving large, eat code, and smile\nEat a code nuke, baka bitch
 using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.Design;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection.PortableExecutable;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Threading;
 
 namespace NewDawn_Engine_CSharp
 {
     public class System //Stores variables that aren't local to a function
     {
-        public static string[] EngineInfo = { "Example Game", "1", "Start", "0" }; // Initalises EngineInfo {0 - Game Name 1-ChapterID, 2-RoomID, 3-OptionType (0 is over 10 options, 1 is less than 10)
         public static string Path = AppDomain.CurrentDomain.BaseDirectory; //Gets the executing directory
         public static char SlashType = Path.Last(); //Will get the type of slash (Prevents crashing on Unix Based system as / is used instead of \)
-        public static string RoomPath; //Gets set by engine when initialised    
+        
+        //Stores Engine Data (Frequently Changed during code execution)
+        public static string RoomPath; //Stores the path to the room folder (Includes Slash)
+        public static List<string> Links = new List<string>(); //Links are the names of folders (ID corresponds with Options)
+        public static List<string> Options = new List<string>(); //Options are shown to the user and when selected sends the user to the corresponding link
+        public static string[] EngineInfo = { "Example Game", "1", "Start", "0" }; //EngineInfo stores the locations of file  - EngineInfo {0 - Game Name 1-ChapterID, 2-RoomID, 3-OptionType (0 is over 10 options, 1 is less than 10)
+
+        //Stores UserData
+        public static string[] TextVar = { "", "", "", "", "", "" }; //Text array for engine variable
+        public static bool[] BoolVar = { false, false, false, false, false }; //Boolean Variable for engine variable
     }
 
     public class ErrorCheck // Stores all functions that
@@ -61,7 +66,7 @@ namespace NewDawn_Engine_CSharp
                     string[] Temp = File.ReadAllLines(System.RoomPath + "ChapterChange.txt");
                     System.EngineInfo[1] = Temp[0];
                     System.EngineInfo[2] = "Start";
-                    Engine.EngineInitalise();
+                    NewEngine.EngineCheck();
                 }
                 else
                 {
@@ -72,7 +77,7 @@ namespace NewDawn_Engine_CSharp
             }
             return true;
         }
-         
+        
         public static bool OptionLinkCheck(int a, int b)
         {
             if (a != b)//Checks room is valid
@@ -124,7 +129,7 @@ namespace NewDawn_Engine_CSharp
     {
         public static void Main() //Main stores the menu
         {
-            Console.WriteLine("NewDawn Engine 0.1.3 (C# Edition)\n\n1) Load Game\n0) Quit"); //Prints menu 
+            Console.WriteLine("NewDawn Engine 0.1.3 (C# Edition)\n\n1) Load Game\n0) Quit" ); //Prints menu 
             int Input = CommonCode.IntInput();
             Console.WriteLine(Input);
             
@@ -151,7 +156,7 @@ namespace NewDawn_Engine_CSharp
                         System.EngineInfo[1] = "1";
                         System.EngineInfo[2] = "Start";
                         Console.Clear();
-                        Engine.NFOMenu();
+                        NewEngine.NFOMenu();
                     }
                     catch //This should only be executed if there is a input that isn't a interger (or if somthing goes wrong)
                     {
@@ -166,17 +171,17 @@ namespace NewDawn_Engine_CSharp
         }
     }
 
-    public class Engine // Stores Main code
-    { 
-        public static void NFOMenu() //Turns I.NFO into a menu that is easily made by I.Nfo
+    class NewEngine //Newer version of the engine
+    {
+        public static void NFOMenu() //Turns NFO files into a custom main menu
         {
             string[] NFO = File.ReadAllLines(System.Path + "data" + System.SlashType + System.EngineInfo[0] + System.SlashType + "i.nfo");
             Console.WriteLine(NFO[0] + "   (" + NFO[3] + ")" + "\n1) Play\n2) Load Game - UNAVAILABLE\n0) Back to Main menu\n\nRelease Date: " + NFO[4] + "\n" + NFO[2]);
-            
+
             int Input = CommonCode.IntInput();
             if (Input == 1)
             {
-                EngineInitalise();            
+                EngineCheck();
             }
             else if (Input == 0)
             {
@@ -184,51 +189,105 @@ namespace NewDawn_Engine_CSharp
             }
         }
 
-        public static void EngineInitalise() //Initalises the engine (Performs error checking and loads data for room)
+        public static void EngineCheck() //This checks that the room is valid and sets up options and links
         {
             System.RoomPath = System.Path + "Data" + System.SlashType + System.EngineInfo[0] + System.SlashType + System.EngineInfo[1] + System.SlashType + System.EngineInfo[2] + System.SlashType; //Stores the path to the current room
-            Console.Clear();
-            if (ErrorCheck.CriticalFileCheck() == true) //Only contines if critical files are present
+            System.Links.Clear(); //Clears all items in Links
+            System.Options.Clear();
+            ErrorCheck.CriticalFileCheck(); //Will throw error is a critical file is missing
+
+            System.Options.AddRange(File.ReadAllLines(System.RoomPath + "O.txt")); //Adds each line in O.txt as a individual item in the list
+            System.Options.AddRange(File.ReadAllLines(System.RoomPath + "L.txt")); //Adds each line in O.txt as a individual item in the list
+            ErrorCheck.OptionLinkCheck(System.Links.Count, System.Options.Count); //Compares size of Options and Links, if different throws error
+
+            if (File.Exists(System.RoomPath + "VarSet.txt") || File.Exists(System.RoomPath + "VarCheck.txt")) //Only sends user to Variables if the files exist
             {
-                string[] OptionText = File.ReadAllLines(System.RoomPath + "O.txt"); //loops and prints each text with the id of the command
-                string[] Links = File.ReadAllLines(System.RoomPath + "L.txt");  //Reads L.txt
-                bool Temp = ErrorCheck.OptionLinkCheck(OptionText.Length,Links.Length); //Compares option links
-                if (Temp == true)
-                {
-                    Engine.Output();
-                }
+                NewEngine.Variables();
+            }
+            else //Otherwise just builds the room
+            {
+                NewEngine.BuildRoom();
             }
         }
-        
-        public static void Output() // Displays room options and handles user input
-        {
-            string[] OptionText = File.ReadAllLines(System.RoomPath + "O.txt"); //loops and prints each text with the id of the command
-            string[] Links = File.ReadAllLines(System.RoomPath + "L.txt");  //Reads L.txt
 
-            Console.WriteLine(File.ReadAllText(System.RoomPath + "T.txt") + "\nOptions:\n"); //This prints all the t.txt file
-            for (int i = 1; OptionText.Length >= i; i++)
+        public static void Variables() //This function handles Varset and VarCheck
+        {
+            string[] TempFile; //Used as a temporary file reader
+            if (File.Exists(System.Path + "VarSet.txt")) // This Sets Variables
             {
-                Console.WriteLine(i + ") " + OptionText[i - 1]); // Offsets option by one to account for keyboards being 1,9 + 0
+                TempFile = File.ReadAllLines(System.RoomPath + "VarSet.txt"); // (0 - bool/text  1 - Place in array   2 - Value)
+                if (TempFile[0] == "bool")
+                {
+                    if (TempFile[2] == "false")
+                    {
+                        System.BoolVar[Convert.ToInt32(TempFile[1])] = false;
+                    }
+                    else if (TempFile[2] == "true")
+                    {
+                        System.BoolVar[Convert.ToInt32(TempFile[1])] = true;
+                    }
+                }
+                else if (TempFile[0] == "text")
+                {
+                    System.TextVar[Convert.ToInt32(TempFile[1])] = TempFile[2];
+                }
             }
 
-            int Input = CommonCode.IntInput();
+            if (File.Exists(System.Path + "VarCheck.txt"))// Checks Variables
+            {//0-text/bool 1-Position in array 2-expected result 3-Positive Result Option 4- Positive result link
+                TempFile = File.ReadAllLines(System.RoomPath + "VarCheck.txt");
+                if (TempFile[0] == "bool")
+                {
+                    if (TempFile[2] == Convert.ToString(System.BoolVar[Convert.ToInt32(TempFile[1])])) //Converts sp
+                    {
+                        System.Options.Add(TempFile[3]);
+                        System.Links.Add(TempFile[4]);
+                    }
+                }
+                else if (TempFile[0] == "text")
+                {
+                    if (TempFile[2] == Convert.ToString(System.TextVar[Convert.ToInt32(TempFile[1])])) //Converts sp
+                    {
+                        System.Options.Add(TempFile[3]);
+                        System.Links.Add(TempFile[4]);
+                    }
+                }
+            }
 
-            if (Input == 0 && Links.Length == 8)
+            NewEngine.BuildRoom(); //Sends user to build room if theres an error or when done
+        }
+
+        public static void BuildRoom() //Outputs Room
+        {
+            Console.WriteLine(File.ReadAllText(System.RoomPath + "T.txt") + "\nOptions:\n"); //This prints all the t.txt file
+            for (int i = 1; System.Options.Count >= i; i++)
             {
-                System.EngineInfo[2] = Links[8];
+                Console.WriteLine(i + ") " + System.Options[i - 1]); // Offsets option by one to account for keyboards being 1,9 + 0
+            }
+
+            NewEngine.UserInput();
+        }
+
+        public static void UserInput()
+        {
+            int Input = CommonCode.IntInput();
+            if (Input == 0 && System.Links.Count == 8)
+            {
+                System.EngineInfo[2] = System.Links[8];
             }
             else if (Input == 1 || Input == 2 || Input == 3 || Input == 3 || Input == 4 || Input == 5 || Input == 6 || Input == 7 || Input == 8 || Input == 9)
             {
-                System.EngineInfo[2] = Links[Input - 1];
+                System.EngineInfo[2] = System.Links[Input - 1];
             }
             else //Couldn't fix an error so this just prevents a crash
             {
                 Console.Clear();
                 Console.WriteLine("It seems like an error occurred. Sorry!\nThe console will recover in 5 seconds...");
                 Thread.Sleep(5000);
-                EngineInitalise();
+                NewEngine.EngineCheck();
             }
-            EngineInitalise();
+            NewEngine.EngineCheck(); //Completes the loop, by sending the user back to engine check
         }
     }
 }
+//The horrors of the night melt away, under the warm glow of survival of the day 
