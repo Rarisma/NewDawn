@@ -82,7 +82,7 @@ namespace NewDawn_Engine_CSharp
         {
             if (a != b)//Checks room is valid
             {
-                Console.WriteLine("This room is incorectly configured as it doesn't have the same lines in o.txt and l.txt\nIf you are not the developer you should report this,\n\nPress Enter to be sent back to the news"); //If you are a dev and this happens you should feel bad.
+                Console.WriteLine("This room is incorectly configured as it doesn't have the same lines in o.txt and l.txt\nIf you are not the developer you should report this,\n\nPress Enter to be sent back to the main menu.\n\nStatus Report:\n" + "Links:"  + a + "\nOptions: " + b); //If you are a dev and this happens you should feel bad.
                 Console.ReadLine();
                 Program.Main();
             }
@@ -129,7 +129,7 @@ namespace NewDawn_Engine_CSharp
     {
         public static void Main() //Main stores the menu
         {
-            Console.WriteLine("NewDawn Engine 0.1.3 (C# Edition)\n\n1) Load Game\n0) Quit" ); //Prints menu 
+            Console.WriteLine("NewDawn Engine 0.2.0 (C# Edition)\n\n1) Load Game\n0) Quit" ); //Prints menu 
             int Input = CommonCode.IntInput();
             Console.WriteLine(Input);
             
@@ -194,11 +194,20 @@ namespace NewDawn_Engine_CSharp
             System.RoomPath = System.Path + "Data" + System.SlashType + System.EngineInfo[0] + System.SlashType + System.EngineInfo[1] + System.SlashType + System.EngineInfo[2] + System.SlashType; //Stores the path to the current room
             System.Links.Clear(); //Clears all items in Links
             System.Options.Clear();
+            Console.Clear();
             ErrorCheck.CriticalFileCheck(); //Will throw error is a critical file is missing
 
             System.Options.AddRange(File.ReadAllLines(System.RoomPath + "O.txt")); //Adds each line in O.txt as a individual item in the list
-            System.Options.AddRange(File.ReadAllLines(System.RoomPath + "L.txt")); //Adds each line in O.txt as a individual item in the list
+            System.Links.AddRange(File.ReadAllLines(System.RoomPath + "L.txt")); //Adds each line in O.txt as a individual item in the list
             ErrorCheck.OptionLinkCheck(System.Links.Count, System.Options.Count); //Compares size of Options and Links, if different throws error
+
+            if (File.Exists(System.RoomPath + "ChapterChange.txt") == true) // Checks if a chapter Change exists
+            {
+                string[] Temp = File.ReadAllLines(System.RoomPath + "ChapterChange.txt");
+                System.EngineInfo[1] = Temp[0];
+                System.EngineInfo[2] = "Start";
+                NewEngine.EngineCheck();
+            }
 
             if (File.Exists(System.RoomPath + "VarSet.txt") || File.Exists(System.RoomPath + "VarCheck.txt")) //Only sends user to Variables if the files exist
             {
@@ -213,8 +222,10 @@ namespace NewDawn_Engine_CSharp
         public static void Variables() //This function handles Varset and VarCheck
         {
             string[] TempFile; //Used as a temporary file reader
-            if (File.Exists(System.Path + "VarSet.txt")) // This Sets Variables
+            if (File.Exists(System.RoomPath + "VarSet.txt")) // This Sets Variables
             {
+                Console.WriteLine("Varset");
+                Thread.Sleep(5000);
                 TempFile = File.ReadAllLines(System.RoomPath + "VarSet.txt"); // (0 - bool/text  1 - Place in array   2 - Value)
                 if (TempFile[0] == "bool")
                 {
@@ -233,8 +244,9 @@ namespace NewDawn_Engine_CSharp
                 }
             }
 
-            if (File.Exists(System.Path + "VarCheck.txt"))// Checks Variables
+            if (File.Exists(System.RoomPath + "VarCheck.txt"))// Checks Variables
             {//0-text/bool 1-Position in array 2-expected result 3-Positive Result Option 4- Positive result link
+                Console.WriteLine("VarCheck");
                 TempFile = File.ReadAllLines(System.RoomPath + "VarCheck.txt");
                 if (TempFile[0] == "bool")
                 {
