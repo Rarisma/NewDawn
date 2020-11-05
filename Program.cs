@@ -1,11 +1,10 @@
 ﻿//NewDawn Engine C# Edition by Rarisma
-//The Heir to the code throne By Rarisma; It was a mistake to code here\n\nYour code sucks dick\n\nA splash of code to seal the deal\n\nCounsel of code\n\nAll-consuming Lord of code\n\nRarisma. Heir of the code Throne\nSwallow your rod\ncode-suck God\ncode-Messiah\nGive me the code Scar\n\nTight fuckable dickhole\n\ncode-cruiser\n\nHow long is your code, exactly?\nMan, shut the fuck up nerd\nCode-dunked by my white fat cock\nYour GF's pussy tastes like my code\nI actually beat a nerd to death\nTired of coding in nerd pussy\nCongratulations, Future Codelords!\nI shape fates and I rm rf dudes\nGet paid money to write in Php\nMaking this much code ain’t easy\n\nExecution by excessive code\nYou gonna get published and compiled\nRussian Roulette with a code-Gun\nYou've got one sick dick, bitch\n\ncode-drooling, moaning slut\nStuff some code in my butt\nSuck my big fat juicy ballsack\nYou will suck code from my dick\nAss is running on code-vapors\nHands off the code stash, bubs\nSpeedy code-dealer\nFUCKED CHILD\nJust chillin'\ncode villain\n\ncode all ye faithful\n\ncode-fucked God\nIn his asshole\ncode proud, code loud\nFucked up? Now, you’re code\nMake bank, smoke dank\nStop the code ocean\nSlurp code\nThen, I burp code\nLiving large, eat code, and smile\nEat a code nuke, baka bitch
+//Smoothbrain tried to stop me last time (Dec 23rd)
+//Vote the dimentia patient or the lunatic cultist either way america is probably fucked
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Threading;
 
 namespace NewDawn_Engine_CSharp
@@ -22,76 +21,8 @@ namespace NewDawn_Engine_CSharp
         public static string[] EngineInfo = { "Example Game", "1", "Start", "0" }; //EngineInfo stores the locations of file  - EngineInfo {0 - Game Name 1-ChapterID, 2-RoomID, 3-OptionType (0 is over 10 options, 1 is less than 10)
 
         //Stores UserData
-        public static string[] TextVar = { "", "", "", "", "", "" }; //Text array for engine variable
-        public static bool[] BoolVar = { false, false, false, false, false }; //Boolean Variable for engine variable
-    }
-
-    public class ErrorCheck // Stores all functions that
-    {
-        public static bool CheckDataFolder() // Freezes game if it cannot find any games or if \Data\ is missing
-        {
-            if (Directory.Exists(System.Path + System.SlashType + "Data") == false)
-            {
-                Console.WriteLine("Hey!\nYou are missing the Data folder!\n\nThis means you have no games downloaded.\nTo get some games please download the Data.7z on the NewDawn GitHub\n\nPress enter to quit");
-                Console.ReadLine();
-                Environment.Exit(0);
-            }
-            else
-            {
-                string[] Test;
-                try
-                {
-                    Test = Directory.GetDirectories(System.Path + System.SlashType + "Data"); // This gets the full path to each directory in data
-                }
-                catch
-                {
-                    Console.WriteLine("Oh No!\nYou have no games!\nYou can download some sample games from the NewDawn Github\n\nPress enter to quit");
-                    Console.ReadLine();
-                    Environment.Exit(0);
-                }
-            }
-            return true;
-        }
-    
-        public static bool CriticalFileCheck() // Checks for O/L/T.txt files or if ChapterChange.txt exists
-        {
-            if (File.Exists(System.RoomPath + "T.txt") && File.Exists(System.RoomPath + "O.txt") && File.Exists(System.RoomPath + "L.txt")) // Checks that all rooms exist and throws an error to check
-            {
-                Thread.Sleep(0);
-            }
-            else
-            {
-                if (File.Exists(System.RoomPath + "ChapterChange.txt") == true) // Checks if a chapter Change exists
-                {
-                    string[] Temp = File.ReadAllLines(System.RoomPath + "ChapterChange.txt");
-                    System.EngineInfo[1] = Temp[0];
-                    System.EngineInfo[2] = "Start";
-                    NewEngine.EngineCheck();
-                }
-                else
-                {
-                    Console.WriteLine("A Critical file is missing from this room\n If you are the developer please check that O.txt, L.txt and T.txt exists in,\n" + System.RoomPath + "\nPress enter to be sent back to the main menu\n\nSTATUS REPORT:\nT.txt is present " + File.Exists(System.RoomPath + "T.txt") + "\nL.txt is present " + File.Exists(System.RoomPath + "L.txt") + "\nO.txt is present " + File.Exists(System.RoomPath + "O.txt"));
-                    Console.Read();
-                    Program.Main();
-                }
-            }
-            return true;
-        }
-        
-        public static bool OptionLinkCheck(int a, int b)
-        {
-            if (a != b)//Checks room is valid
-            {
-                Console.WriteLine("This room is incorectly configured as it doesn't have the same lines in o.txt and l.txt\nIf you are not the developer you should report this,\n\nPress Enter to be sent back to the main menu.\n\nStatus Report:\n" + "Links:"  + a + "\nOptions: " + b); //If you are a dev and this happens you should feel bad.
-                Console.ReadLine();
-                Program.Main();
-            }
-            else
-            {
-                return true;
-            }
-            return true;
-        }
+        public static List<string?> TextVar = new List<string?>();  //Text array for engine variable
+        public static List<bool?> BoolVar = new List<bool?>(); //Boolean Variable for engine variable
     }
 
     public class CommonCode //Wadya know this stores common functions to save space
@@ -123,6 +54,69 @@ namespace NewDawn_Engine_CSharp
             }
             return Passback;
         }
+        public static bool CheckDataFolder() // Freezes game if it cannot find any games or if \Data\ is missing
+        {
+            if (Directory.Exists(System.Path + System.SlashType + "Data") == false)
+            {
+                Console.WriteLine("Hey!\nYou are missing the Data folder!\n\nThis means you have no games downloaded.\nTo get some games please download the Data.7z on the NewDawn GitHub\n\nPress enter to quit");
+                Console.ReadLine();
+                Environment.Exit(0);
+            }
+            else
+            {
+                try
+                {
+                    string[] Test = Directory.GetDirectories(System.Path + System.SlashType + "Data"); // This gets the full path to each directory in data
+                }
+                catch
+                {
+                    Console.WriteLine("Oh No!\nYou have no games!\nYou can download some sample games from the NewDawn Github\n\nPress enter to quit");
+                    Console.ReadLine();
+                    Environment.Exit(0);
+                }
+            }
+            return true;
+        }
+
+        public static bool CriticalFileCheck() // Checks for O/L/T.txt files or if ChapterChange.txt exists
+        {
+            if (File.Exists(System.RoomPath + "T.txt") && File.Exists(System.RoomPath + "O.txt") && File.Exists(System.RoomPath + "L.txt")) // Checks that all rooms exist and throws an error to check
+            {
+                Thread.Sleep(0);
+            }
+            else
+            {
+                if (File.Exists(System.RoomPath + "ChapterChange.txt") == true) // Checks if a chapter Change exists
+                {
+                    string[] Temp = File.ReadAllLines(System.RoomPath + "ChapterChange.txt");
+                    System.EngineInfo[1] = Temp[0];
+                    System.EngineInfo[2] = "Start";
+                    NewEngine.EngineCheck();
+                }
+                else
+                {
+                    Console.WriteLine("A Critical file is missing from this room\n If you are the developer please check that O.txt, L.txt and T.txt exists in,\n" + System.RoomPath + "\nPress enter to be sent back to the main menu\n\nSTATUS REPORT:\nT.txt is present " + File.Exists(System.RoomPath + "T.txt") + "\nL.txt is present " + File.Exists(System.RoomPath + "L.txt") + "\nO.txt is present " + File.Exists(System.RoomPath + "O.txt"));
+                    Console.Read();
+                    Program.Main();
+                }
+            }
+            return true;
+        }
+
+        public static bool OptionLinkCheck(int a, int b)
+        {
+            if (a != b)//Checks room is valid
+            {
+                Console.WriteLine("This room is incorectly configured as it doesn't have the same lines in o.txt and l.txt\nIf you are not the developer you should report this,\n\nPress Enter to be sent back to the main menu.\n\nStatus Report:\n" + "Links:" + a + "\nOptions: " + b); //If you are a dev and this happens you should feel bad.
+                Console.ReadLine();
+                Program.Main();
+            }
+            else
+            {
+                return true;
+            }
+            return true;
+        }
     }
 
     class Program // Stores the main menu
@@ -131,13 +125,12 @@ namespace NewDawn_Engine_CSharp
         {
             Console.WriteLine("NewDawn Engine 0.2.0 (C# Edition)\n\n1) Load Game\n0) Quit" ); //Prints menu 
             int Input = CommonCode.IntInput();
-            Console.WriteLine(Input);
             
             if (Input == 1) // If 1 is entered
             {
                 Console.Clear();//Clears the screen
+                CommonCode.CheckDataFolder();  
                 Console.WriteLine("Select a game:\n");
-                ErrorCheck.CheckDataFolder();  
                
                 string[] GameDirs = Directory.GetDirectories(System.Path + System.SlashType + "Data");  // This gets the full path to each directory in data
                 for (int i = 0; i <= GameDirs.Length - 1; i++) //Prints the name of every directory in /data/
@@ -151,7 +144,6 @@ namespace NewDawn_Engine_CSharp
                 {
                     try
                     {
-                        Thread.Sleep(100);
                         System.EngineInfo[0] = Path.GetFileName(GameDirs[Convert.ToInt32(Console.ReadLine())]); //gets name of game
                         System.EngineInfo[1] = "1";
                         System.EngineInfo[2] = "Start";
@@ -181,6 +173,16 @@ namespace NewDawn_Engine_CSharp
             int Input = CommonCode.IntInput();
             if (Input == 1)
             {
+                int temp = 0;
+                System.BoolVar = new List<bool?>();
+                System.TextVar = new List<string?>();
+                while (temp < 100000) // move this to system for readability at some point
+                {//This nulls 1000 elements on BoolVar and TextVar
+                    System.BoolVar.Add(null);
+                    System.TextVar.Add(null);
+                    temp += 1;
+                }
+
                 EngineCheck();
             }
             else if (Input == 0)
@@ -195,11 +197,11 @@ namespace NewDawn_Engine_CSharp
             System.Links.Clear(); //Clears all items in Links
             System.Options.Clear();
             Console.Clear();
-            ErrorCheck.CriticalFileCheck(); //Will throw error is a critical file is missing
+            CommonCode.CriticalFileCheck(); //Will throw error is a critical file is missing
 
             System.Options.AddRange(File.ReadAllLines(System.RoomPath + "O.txt")); //Adds each line in O.txt as a individual item in the list
             System.Links.AddRange(File.ReadAllLines(System.RoomPath + "L.txt")); //Adds each line in O.txt as a individual item in the list
-            ErrorCheck.OptionLinkCheck(System.Links.Count, System.Options.Count); //Compares size of Options and Links, if different throws error
+            CommonCode.OptionLinkCheck(System.Links.Count, System.Options.Count); //Compares size of Options and Links, if different throws error
 
             if (File.Exists(System.RoomPath + "ChapterChange.txt") == true) // Checks if a chapter Change exists
             {
@@ -232,10 +234,12 @@ namespace NewDawn_Engine_CSharp
                     if (TempFile[2] == "false")
                     {
                         System.BoolVar[Convert.ToInt32(TempFile[1])] = false;
+                        Console.WriteLine("Boolean Variable set at " + TempFile[1] + " With the value of False");
                     }
                     else if (TempFile[2] == "true")
                     {
                         System.BoolVar[Convert.ToInt32(TempFile[1])] = true;
+                        Console.WriteLine("Boolean Variable set at " + TempFile[1] + " With the value of True");
                     }
                 }
                 else if (TempFile[0] == "text")
@@ -250,8 +254,13 @@ namespace NewDawn_Engine_CSharp
                 TempFile = File.ReadAllLines(System.RoomPath + "VarCheck.txt");
                 if (TempFile[0] == "bool")
                 {
+                    Console.WriteLine("Boolean Check - BoolVar[" + TempFile[1] + "] == " + TempFile[2] + "Result: ");
+                    Console.WriteLine(TempFile[2] == Convert.ToString(System.BoolVar[Convert.ToInt32(TempFile[1])]));
+                    Console.WriteLine(Convert.ToString(System.BoolVar[Convert.ToInt32(TempFile[1])]));
+                    Thread.Sleep(5000);
                     if (TempFile[2] == Convert.ToString(System.BoolVar[Convert.ToInt32(TempFile[1])])) //Converts sp
                     {
+                        Console.WriteLine("VarCheck Pass");
                         System.Options.Add(TempFile[3]);
                         System.Links.Add(TempFile[4]);
                     }
@@ -260,9 +269,14 @@ namespace NewDawn_Engine_CSharp
                 {
                     if (TempFile[2] == Convert.ToString(System.TextVar[Convert.ToInt32(TempFile[1])])) //Converts sp
                     {
+                        Console.WriteLine("VarCheck Pass");
                         System.Options.Add(TempFile[3]);
                         System.Links.Add(TempFile[4]);
                     }
+                }
+                else
+                {
+                    Console.WriteLine("VarCheck Failed");
                 }
             }
 
@@ -302,4 +316,3 @@ namespace NewDawn_Engine_CSharp
         }
     }
 }
-//The horrors of the night melt away, under the warm glow of survival of the day 

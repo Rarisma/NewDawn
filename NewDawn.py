@@ -1,164 +1,108 @@
-#NewDawn 0.0.1 by Rarisma
-#This is code to be executed by, you love, turn the tab space up, I am fired up.
+#NewDawn Engine 0.2.0 (Python Edition)
+#Your Code Wont Last - I would put the lyrics here but last time i did that my school flagged me for p**n gg smoothwall
+import os, time
 
-System = ["0.0.1",1,0] #0 - Version, 1 - Devloper (Shows more info), 2 offical build
-import time, keyboard, os
-MountPoint = "" #Stores the path to the loaded game
-CurrentPoint = ""
-NextRoom = ""
+class System():
+    #Engine Data
+    tempvar = os.path.dirname(os.path.abspath(__file__)) #Only used to get the  
+    SlashType = tempvar[len(tempvar) - 1] #Used for Unix Support
 
-def main(): #Function handles the main menu for NewDawn
-    global MountPoint
-    print("NewDawn Engine 0.0.1\n\n1) Load a game\n2) Find new games\n3) Create a game\nS) Settings\nE) Exit\n\nTo select an option press the character that is in brackets\neg; Press 1 to load a game\n")
-    loop = 1
-    while loop == 1:
-        if keyboard.is_pressed("1"): # Checks if 1 is pressed
-            
-            print("Fetching game list...")
-            FolderList = os.listdir(os.path.dirname(os.path.abspath(__file__)) + '\\Data') #Checks Data directory for sub-directories
-            print("Game list fetched!")
-            
-            a = 0
-            while a <= len(FolderList) - 1:
-                print(str(a) + ") - " + str(FolderList[a])) #prints out list of all game folders to load
-                a = a + 1
-            
-            loop = 1
-            while loop == 1: #This loop converts the input to a number and loops if it isn't
-                a = input()
-                try: 
-                    a = int(a)
-                except:
-                    print("Make sure the input you entered is a number")
-                else:
-                    if a <= len(FolderList) - 1: # Checks that this a valid option
-                        loop = 0
-                    else:
-                        loop = 1
-            
-            print("Now loading " + FolderList[a])
-            MountPoint = os.path.dirname(os.path.abspath(__file__)) + "\\Data\\" + str(FolderList[a]) #Mount Point is used internally as the path to call for the directory for the game (This is the top level and isnt set to chapter directories)
-            os.system('cls')
-            DawnMenu()
-            
-        elif keyboard.is_pressed("2"):
-            print("This feature isn't available yet.")
-        elif keyboard.is_pressed("3"):
-            print("This feature isn't available yet.")
-        elif keyboard.is_pressed("s"):
-            print("This feature isn't available yet.")
-        elif keyboard.is_pressed("e"):
-            exit()
-
-def DawnMenu(): # Handles the main menu for the game (Merge with real main menu?)
-    global CurrentPoint
-    global NextRoom
-    GameProperties = ["","","","","",""] #Handles the info file and menu for the game
-    a= open(MountPoint + "\\i.nfo","r")
-    TempString = a.readlines()
-    GameProperties[0] = TempString[0].strip()
-    GameProperties[1] = TempString[1].strip()
-    GameProperties[2] = TempString[2].strip()
-    GameProperties[3] = TempString[3].strip()
-    GameProperties[4] = TempString[4].strip()# this just reads the i.nfo file and reads and strips \n into the GameProperties variable
-
-    print(str(GameProperties[0]) + " Ver. " + str(GameProperties[3]) + "\n\n\n1) New Game")
-    if GameProperties[1] == "True": #Only displays the option to load the save if its enabled in the i.nfo file
-        print("2) Load Game")
-    
-    print("S) Settings\nE) Exit game\nQ) Quit\n\n\nRelease Date: " + GameProperties[4])
-    
-    loop = 1
-    while loop == 1:
-        if keyboard.is_pressed("1"):
-            CurrentPoint = "\\1\\"
-            NextRoom = "Start\\"
-            os.system("cls")
-            DawnDisplay()
-        elif keyboard.is_pressed("2") and GameProperties[1] == 1:
-            print("Saves not implimented")
-        elif keyboard.is_pressed("S"):
-            print("No Settings.")
-        elif keyboard.is_pressed("E"):  #Sends user back to the main menu
-            main()
-        elif keyboard.is_pressed("Q"):  #Makes Sure user wants to quit
-            print("Hold for 3 seconds to quit...")
-            time.sleep(3)
-            if keyboard.is_pressed("Q"):
-                quit()
-
-def DawnDisplay():
-    global CurrentPoint
-    global NextRoom
-    TempPath = MountPoint + CurrentPoint + NextRoom
-    
-    FileReader = open(TempPath + "T.txt","r") #T.txt stores text
-    TempText = FileReader.readlines()    #Used to store the temporary text while its being converted
-    FileReader.close()
-    Text = ""
-    a = 0
-    while a <= len(TempText) - 1:
-        Text = Text + TempText[a]
-        a += 1
-    Text = Text + "\n"
-    
-    FileReader = open(TempPath + "O.txt","r")#O.txt stores the names options
-    TempText = FileReader.readlines()
-    FileReader.close()
-
-    FileReader = open(TempPath + "\\L.txt","r")#L.txt stores the path to the option rooms
-    TempText2 = FileReader.readlines()
-    FileReader.close()
-    
-    OptionText = ""
+    #Game Data 
     Options = []
     Links = []
-    a = 0
-    while a <= len(TempText) - 1: #This works on the asumption Links and Options are the same length
-        Options.append(TempText[a].strip())
-        Links.append(TempText2[a].strip())
-        a += 1
+    EngineInfo = ["Example Game", "1", "Start", "0"]# //EngineInfo stores the locations of file  - EngineInfo {0 - Game Name 1-ChapterID, 2-RoomID, 3-OptionType (0 is over 10 options, 1 is less than 10)
+    RoomPath = "" #Declares RoomPath as a global Variable
 
-    a= 0
-    os.system("cls")
-    while a <= len(Options) - 1:
-        OptionText = OptionText + "\n" + str(a + 1) + ") " + Options[a]# We add one to a to make the numbers are in order on a keyboard (as 0 is last on a keyboard it its the final number to be displayed)
-        a += 1
+    #User Data
+    TextVar = [None] * 1000
+    BoolVar = [None] * 1000
 
-    print(Text + "\nOptions:" + OptionText)
-    time.sleep(1.5)
-    if len(Options) - 1 <= 9: #0-9 options are allowed meaning that rooms can have upto 10 options, another option will be allowed later, giving infinite options
-        loop = 1
-        while loop == 1:
-            if keyboard.is_pressed("1"):    #Starts at 1 as 1 appears before 0 on the keyboard
-                NextRoom = Links[0] + "\\"
-                loop = 0
-            elif keyboard.is_pressed("2") and 1 <= len(Links) - 1: #Each line includes error checking to make sure an invalid input can't be passed through
-                NextRoom = Links[1] + "\\"
-                loop = 0
-            elif keyboard.is_pressed("3") and 2 <= len(Links) - 1:
-                NextRoom = Links[2] + "\\"
-                loop = 0
-            elif keyboard.is_pressed("4") and 3 <= len(Links) - 1:
-                NextRoom = Links[3] + "\\"
-                loop = 0
-            elif keyboard.is_pressed("5") and 4 <= len(Links) - 1:
-                NextRoom = Links[4] + "\\"
-                loop = 0
-            elif keyboard.is_pressed("6") and 5 <= len(Links) - 1:
-                NextRoom = Links[5] + "\\"
-                loop = 0
-            elif keyboard.is_pressed("7") and 6 <= len(Links) - 1:
-                NextRoom = Links[6] + "\\"
-                loop = 0
-            elif keyboard.is_pressed("8") and 7 <= len(Links) - 1:
-                NextRoom = Links[7] + "\\"
-                loop = 0
-            elif keyboard.is_pressed("9") and 8 <= len(Links) - 1:
-                NextRoom = Links[8] + "\\"
-                loop = 0
-            elif keyboard.is_pressed("0") and 9 <= len(Links) - 1:
-                NextRoom = Links[9] + "\\"
-                loop = 0
-        DawnDisplay()
-main() #This is a bit of trick to force python to read all variables and functions into memory to allow functions to be called anywhere
+class CommonCode(): #Stores Error checks and other common code
+
+    @staticmethod #Stops linter from throwing errors since the class is only used to organise code
+    def ECDataFolderCheck():
+        if os.path.isdir(os.path.dirname(os.path.abspath(__file__)) + "\\Data" == False): #Runs if \Data\ is missing
+            input("Hey!\nYou are missing the Data folder!\n\nThis means you have no games downloaded.\nTo get some games please download the Data.7z on the NewDawn GitHub\n\nPress enter to quit") #Waits for the user to aknowledge the error
+            exit() #Kills the game
+        else:
+            DataSubfolderTest = []
+            for file in os.listdir(os.path.dirname(os.path.abspath(__file__)) + "\\Data"):
+                d = os.path.join(os.path.dirname(os.path.abspath(__file__)) + "\\Data", file)
+                if os.path.isdir(d):
+                    DataSubfolderTest.append(os.path.basename(os.path.normpath(d)))
+            if len(DataSubfolderTest) - 1 <= -1:
+                print("Oh No!\nYou have no games!\nYou can download some sample games from the NewDawn Github\n\nPress enter to quit")
+
+    @staticmethod 
+    def ECCriticalFileCheck(): #Checks for O/L/T.txt files or if ChapterChange.txt exists
+            if os.path.exists(System.RoomPath + "T.txt") and os.path.exists(System.RoomPath + "O.txt") and os.path.exists(System.RoomPath + "L.txt"): #Checks that all rooms exist and throws an error to check
+                time.sleep(0)
+            else:
+                if os.path.exists(System.RoomPath + "ChapterChange.txt") == True: #Checks if a chapter Change exists
+                    Temp = file.ReadAllLines(System.RoomPath + "ChapterChange.txt")
+                    System.EngineInfo[1] = Temp[0]
+                    System.EngineInfo[2] = "Start"
+                    Engine.EngineCheck()
+                else:
+                    print("A Critical file is missing from this room\n If you are the developer please check that O.txt, L.txt and T.txt exists in,\n" + System.RoomPath + "\nPress enter to be sent back to the main menu\n\nSTATUS REPORT:\nT.txt is present " + os.path.exists(System.RoomPath + "T.txt") + "\nL.txt is present " + os.path.exists(System.RoomPath + "L.txt") + "\nO.txt is present " + os.path.exists(System.RoomPath + "O.txt"))
+                    input()
+                    Menu()
+            return True
+
+    def ECOptionsLinkCheck(self, a, b):
+        if len(a) == len(b):
+            pass
+        else:
+            input("This room is incorectly configured as it doesn't have the same lines in o.txt and l.txt\nIf you are not the developer you should report this,\n\nPress Enter to be sent back to the main menu.\n\nStatus Report:\n" + "Links:"  + str(a) + "\nOptions: " + str(b))
+            Menu()
+    
+    @staticmethod
+    def Intput(): #Sorts out input for menus
+        Passback = 0
+        loop = True
+        while loop == True:
+            try:
+                Passback = int(input()) #Converts StringInput to passback (Will error if wrong)
+                if Passback > 9:
+                    print("Enter a number from 1-9 (Includes 0)")
+                else:
+                    loop = False
+            except:
+                print("That is not a number")
+                loop = True
+        return Passback
+
+def Menu():
+    print("NewDawn Engine 0.2.0 (Python Edition)\n\n1) Load Game\n0) Quit")
+    Select = CommonCode.Intput()
+    if Select == 1:
+        os.system('cls')
+        CommonCode.ECDataFolderCheck()
+        print("Select a game:\n")
+
+        #This displays all the games (Subfolders) in \Data\
+        DataSubfolders = []
+        for file in os.listdir(os.path.dirname(os.path.abspath(__file__)) + "\\Data"):
+            d = os.path.join(os.path.dirname(os.path.abspath(__file__)) + "\\Data", file)
+            if os.path.isdir(d):
+                DataSubfolders.append(os.path.basename(os.path.normpath(d)))
+        a = 1
+        while len(DataSubfolders) >  a-1:
+            print(str(a) + ") " + DataSubfolders[a-1])
+            a = a + 1
+        print("Press Enter when you are done.\n")
+        time.sleep(0.5)
+        
+        while 1 == 1: #This loops the game permantly
+            try:
+                time.sleep(1)
+                Select = input()
+                System.EngineInfo[0] =  os.path.dirname(os.path.abspath(__file__)) + "\\" + DataSubfolders[int(Select) - 1] #gets name of game
+                System.EngineInfo[1] = "1"
+                System.EngineInfo[2] = "Start"
+                os.system("cls")
+                print(System.EngineInfo[0])
+                #NewEngine.NFOMenu()
+            except: #This should only be executed if there is a input that isn't a interger (or if somthing goes wrong)
+                print("Please enter a valid number, Shown in brackets\nSuch as 1)") #Helpful message
+Menu() #Forces python to load all the program into memory
