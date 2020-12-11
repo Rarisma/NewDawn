@@ -1,0 +1,22 @@
+C:\Users\Jake\source\repos\NewDawn GUI\bin\Debug\NewDawn GUI.exe.config
+C:\Users\Jake\source\repos\NewDawn GUI\bin\Debug\NewDawn GUI.exe
+C:\Users\Jake\source\repos\NewDawn GUI\bin\Debug\NewDawn GUI.pdb
+C:\Users\Jake\source\repos\NewDawn GUI\obj\Debug\NewDawn GUI.csprojAssemblyReference.cache
+C:\Users\Jake\source\repos\NewDawn GUI\obj\Debug\MainWindow.g.cs
+C:\Users\Jake\source\repos\NewDawn GUI\obj\Debug\App.g.cs
+C:\Users\Jake\source\repos\NewDawn GUI\obj\Debug\NewDawn GUI_MarkupCompile.cache
+C:\Users\Jake\source\repos\NewDawn GUI\obj\Debug\NewDawn GUI_MarkupCompile.lref
+C:\Users\Jake\source\repos\NewDawn GUI\obj\Debug\MainWindow.baml
+C:\Users\Jake\source\repos\NewDawn GUI\obj\Debug\NewDawn GUI.g.resources
+C:\Users\Jake\source\repos\NewDawn GUI\obj\Debug\NewDawn_GUI.Properties.Resources.resources
+C:\Users\Jake\source\repos\NewDawn GUI\obj\Debug\NewDawn GUI.csproj.GenerateResource.cache
+C:\Users\Jake\source\repos\NewDawn GUI\obj\Debug\NewDawn GUI.csproj.CoreCompileInputs.cache
+C:\Users\Jake\source\repos\NewDawn GUI\obj\Debug\NewDawn GUI.exe
+C:\Users\Jake\source\repos\NewDawn GUI\obj\Debug\NewDawn GUI.pdb
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\NewDawn GUI.csprojAssemblyReference.cache
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\MainWindow.g.cs
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\App.g.cs
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\NewDawn GUI_MarkupCompile.cache
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\NewDawn GUI_MarkupCompile.lref
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\NewDawn GUI.exe
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\NewDawn GUI.pdb
