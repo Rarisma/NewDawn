@@ -20,3 +20,11 @@ C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\NewDawn GUI_MarkupCompile.cache
 C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\NewDawn GUI_MarkupCompile.lref
 C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\NewDawn GUI.exe
 C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\NewDawn GUI.pdb
+C:\Users\Jake\Documents\GitHub\NewDawn\bin\Debug\NewDawn GUI.exe.config
+C:\Users\Jake\Documents\GitHub\NewDawn\bin\Debug\NewDawn GUI.exe
+C:\Users\Jake\Documents\GitHub\NewDawn\bin\Debug\NewDawn GUI.pdb
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\MainWindow.baml
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\NewDawn GUI.g.resources
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\NewDawn_GUI.Properties.Resources.resources
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\NewDawn GUI.csproj.GenerateResource.cache
+C:\Users\Jake\Documents\GitHub\NewDawn\obj\Debug\NewDawn GUI.csproj.CoreCompileInputs.cache
