@@ -1,5 +1,0 @@
-bool
-232
-true
-rarisma
-rarisma
