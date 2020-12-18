@@ -1,0 +1,15 @@
+C:\Users\Jake\source\repos\NewDawn Engine\bin\Release\NewDawn Engine.exe.config
+C:\Users\Jake\source\repos\NewDawn Engine\bin\Release\NewDawn Engine.exe
+C:\Users\Jake\source\repos\NewDawn Engine\bin\Release\NewDawn Engine.pdb
+C:\Users\Jake\source\repos\NewDawn Engine\obj\Release\MainWindow.g.cs
+C:\Users\Jake\source\repos\NewDawn Engine\obj\Release\App.g.cs
+C:\Users\Jake\source\repos\NewDawn Engine\obj\Release\NewDawn Engine_MarkupCompile.cache
+C:\Users\Jake\source\repos\NewDawn Engine\obj\Release\NewDawn Engine_MarkupCompile.lref
+C:\Users\Jake\source\repos\NewDawn Engine\obj\Release\MainWindow.baml
+C:\Users\Jake\source\repos\NewDawn Engine\obj\Release\NewDawn Engine.g.resources
+C:\Users\Jake\source\repos\NewDawn Engine\obj\Release\NewDawn_Engine.Properties.Resources.resources
+C:\Users\Jake\source\repos\NewDawn Engine\obj\Release\NewDawn Engine.csproj.GenerateResource.cache
+C:\Users\Jake\source\repos\NewDawn Engine\obj\Release\NewDawn Engine.csproj.CoreCompileInputs.cache
+C:\Users\Jake\source\repos\NewDawn Engine\obj\Release\NewDawn Engine.exe
+C:\Users\Jake\source\repos\NewDawn Engine\obj\Release\NewDawn Engine.pdb
+C:\Users\Jake\source\repos\NewDawn Engine\obj\Release\NewDawn Engine.csprojAssemblyReference.cache

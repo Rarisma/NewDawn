@@ -1,0 +1,66 @@
+﻿<Window x:Class="NewDawn_Engine.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NewDawn_Engine"
+        mc:Ignorable="d"
+        Title="NewDawn Engine Beta 3.0" Height="500" Width="500">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="469" VerticalAlignment="Top" Width="492">
+            <TabItem Header="Play" Margin="-1,-2,-118,0" Height="21" VerticalAlignment="Top">
+                <Grid Background="#FFE5E5E5" Margin="0,-2,0,13">
+                    <TabControl HorizontalAlignment="Left" Height="436" VerticalAlignment="Top" Width="493" Margin="-2,10,-3,-16">
+                        <TabItem Name="EngineConfigTab" Header="Preferences" Margin="-2,0,-114,-2">
+                            <Grid Background="#FFE5E5E5" RenderTransformOrigin="0.498,0.565" Margin="-2,0,-2,-2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="13*"/>
+                                    <ColumnDefinition Width="478*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock HorizontalAlignment="Left" Margin="9,10,0,0" TextWrapping="Wrap" Text="Step 1 - Select a game" VerticalAlignment="Top" Width="223" Grid.Column="1"/>
+                                <ComboBox Name="GameSelectDropDown" HorizontalAlignment="Left" VerticalAlignment="Top" Width="440" Margin="9,31,0,0" Grid.Column="1"/>
+                                <Button Content="Load Game" HorizontalAlignment="Left" Margin="9,349,0,0" VerticalAlignment="Top" Width="234" Height="44" Grid.Column="1"/>
+                                <Button Content="Erase Save Data" HorizontalAlignment="Left" Margin="243,349,0,0" VerticalAlignment="Top" Width="206" Height="44" Grid.Column="1"/>
+                                <Button Name="NewGame"  Content="New Game" HorizontalAlignment="Left" Margin="9,305,0,0" VerticalAlignment="Top" Width="440" Height="44" Click="NewGameButton" Grid.Column="1"/>
+                                <TextBlock x:Name="GameMenuInfoBox" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="9,124,0,0" Height="176" Width="440" Grid.Column="1"><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="&#x9;    "/><Run Text="Game Information will be shown here when you select a game"/></TextBlock>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Name="EngineTab"  Header="Game" Margin="113,0,-119,-2" HorizontalAlignment="Left" Width="260">
+                            <Grid Background="#FFE5E5E5">
+                                <Button Name="option0" Content="Option 0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="186" Height="35" Margin="27,360,0,0" Click="option0_Click"/>
+                                <Button Name="option1" Content="Option 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="186" Height="35" Margin="281,360,0,0" Click="option1_Click"/>
+                                <Button Name="option3" Content="Option 3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="186" Height="35" Margin="281,320,0,0" Click="option3_Click"/>
+                                <Button Name="option2" Content="Option 2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="186" Height="35" Margin="27,320,0,0" Click="option2_Click"/>
+                                <Button Name="option4" Content="Option 4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="186" Height="35" Margin="27,280,0,0" Click="option4_Click"/>
+                                <Button Name="option5" Content="Option 5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="186" Height="35" Margin="281,280,0,0" Click="option5_Click"/>
+                                <Button Name="option7" Content="Option 7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="186" Height="35" Margin="281,240,0,0" Click="option7_Click"/>
+                                <Button Name="option6" Content="Option 6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="186" Height="35" Margin="27,240,0,0" RenderTransformOrigin="-0.489,0.571" Click="option6_Click"/>
+                                <Button Name="option8" Content="Option 8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="186" Height="35" Margin="27,200,0,0" RenderTransformOrigin="-0.489,0.571" Click="option8_Click"/>
+                                <Button Name="option9" Content="Option 9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="186" Height="35" Margin="281,200,0,0" RenderTransformOrigin="-0.489,0.571" Click="option9_Click"/>
+                                <TextBlock Name="EngineText" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="27,10,0,0" Height="185" Width="440"><Run Text="Game text goes here, if you are running this app regularly then something has probably gone wrong I guess."/><LineBreak/><Run/><LineBreak/><Run Text="idk man it's not like im the dev or somthing. "/><LineBreak/><Run/><LineBreak/><Run Text="Oh..."/><LineBreak/><Run/><LineBreak/><Run Text="Make a bug report I guess, your probably should attach the entire NewDawnEngine Folder."/><LineBreak/><Run/><LineBreak/><Run Text="Please do this even if you have modified your client."/></TextBlock>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Create" Margin="117,-2,-117,-1" HorizontalAlignment="Left" Width="134">
+                <Grid Background="#FFE5E5E5">
+                    <Grid Background="#FFE5E5E5" Margin="20,147,368,217"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Settings" Margin="116,-2,-116,-1" HorizontalAlignment="Left" Width="122">
+                <Grid Background="#FFE5E5E5" Margin="0,-5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="59*"/>
+                        <ColumnDefinition Width="184*"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Content="Auto-Update" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Checked="AutoUpdateToggleOn" Unchecked="AutoUpdateToggleOff" Indeterminate="AutoUpdateToggleOn"/>
+                    <Button x:Name="Easteregg" HorizontalAlignment="Left" VerticalAlignment="Top" Width="466" Margin="5,324,0,0" Click="EasterEggClick" Height="112" Grid.ColumnSpan="2">
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="92" Width="446"><Run/><LineBreak/><Run Text="&#x9;&#x9;&#x9;"/><Run Text="NewDawn Engine 0.3 Alpha"/><LineBreak/><Run Text="&#x9;&#x9;&#x9;    "/><Run Text="Created by Rarisma"/><LineBreak/><Run/><LineBreak/><Run Text="&#x9;&#x9;L"/><Run Text="icense file "/><Run Text="- "/><Run Text="https://github.com/Rarisma/NewDawn"/><LineBreak/></TextBlock>
+                    </Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
