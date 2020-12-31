@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace NewDawn_Engine
+namespace NewDawn_Remake
 {
     /// <summary>
     /// Interaction logic for App.xaml

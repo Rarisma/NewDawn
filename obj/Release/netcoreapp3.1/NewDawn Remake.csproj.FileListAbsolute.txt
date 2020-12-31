@@ -1,0 +1,19 @@
+C:\Users\Jake\source\repos\NewDawn Remake\bin\Release\netcoreapp3.1\NewDawn Remake.exe
+C:\Users\Jake\source\repos\NewDawn Remake\bin\Release\netcoreapp3.1\NewDawn Remake.deps.json
+C:\Users\Jake\source\repos\NewDawn Remake\bin\Release\netcoreapp3.1\NewDawn Remake.runtimeconfig.json
+C:\Users\Jake\source\repos\NewDawn Remake\bin\Release\netcoreapp3.1\NewDawn Remake.runtimeconfig.dev.json
+C:\Users\Jake\source\repos\NewDawn Remake\bin\Release\netcoreapp3.1\NewDawn Remake.dll
+C:\Users\Jake\source\repos\NewDawn Remake\bin\Release\netcoreapp3.1\NewDawn Remake.pdb
+C:\Users\Jake\source\repos\NewDawn Remake\obj\Release\netcoreapp3.1\NewDawn Remake.csprojAssemblyReference.cache
+C:\Users\Jake\source\repos\NewDawn Remake\obj\Release\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Jake\source\repos\NewDawn Remake\obj\Release\netcoreapp3.1\App.g.cs
+C:\Users\Jake\source\repos\NewDawn Remake\obj\Release\netcoreapp3.1\NewDawn Remake_MarkupCompile.cache
+C:\Users\Jake\source\repos\NewDawn Remake\obj\Release\netcoreapp3.1\NewDawn Remake_MarkupCompile.lref
+C:\Users\Jake\source\repos\NewDawn Remake\obj\Release\netcoreapp3.1\MainWindow.baml
+C:\Users\Jake\source\repos\NewDawn Remake\obj\Release\netcoreapp3.1\NewDawn Remake.g.resources
+C:\Users\Jake\source\repos\NewDawn Remake\obj\Release\netcoreapp3.1\NewDawn Remake.AssemblyInfoInputs.cache
+C:\Users\Jake\source\repos\NewDawn Remake\obj\Release\netcoreapp3.1\NewDawn Remake.AssemblyInfo.cs
+C:\Users\Jake\source\repos\NewDawn Remake\obj\Release\netcoreapp3.1\NewDawn Remake.csproj.CoreCompileInputs.cache
+C:\Users\Jake\source\repos\NewDawn Remake\obj\Release\netcoreapp3.1\NewDawn Remake.dll
+C:\Users\Jake\source\repos\NewDawn Remake\obj\Release\netcoreapp3.1\NewDawn Remake.pdb
+C:\Users\Jake\source\repos\NewDawn Remake\obj\Release\netcoreapp3.1\NewDawn Remake.genruntimeconfig.cache
