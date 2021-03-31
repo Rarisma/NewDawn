@@ -1,5 +1,11 @@
-This branch is currently being reverted.
+# Path of a New Dawn
+You are Lucas, an average man who is living an average day until a strange malfunction happens...
 
-Please wait.
+## Installation
+1) Get the latest version of python if needed (https://www.python.org/downloads/)
+2) Download the latest stable build in the releases tab (Getting the file from branches might be unstable )
+3) Run NewDawn.py
 
-Thank you for your paticence.
+## About NewDawn
+
+Path of a New Dawn was a project started in September 2018 and concluded in August 2019 and the story is complete and was created by TMAltair and CakesBaked.
