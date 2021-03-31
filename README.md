@@ -1,5 +1,6 @@
 # NewDawn Engine (WPF Build)
-This build is unmaintained, see the Xamrin branch for a newer, shinier and crossplatorm build.
+#### This the the engine made in WPF and ditched in favor of Xamarin
+See the Xamrin branch for a newer, shinier and crossplatorm build.
 
 ### What is NewDawn?
 NewDawn is a text based game engine that I have made to mostly gain C# and some python experience as Path of A new dawn was my first real programming project, I have decided to remake it in C# and python but impliment it in a different way as the original version is **2000+** lines long and is very repetitive.
