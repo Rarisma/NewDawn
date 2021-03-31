@@ -1,7 +1,5 @@
-# NewDawn Engine
-*Formerly Path Of A New Dawn*
-
-***This is the master branch which only has supported releases for unstable builds [click here](https://github.com/Rarisma/NewDawn/tree/Developer)***
+# NewDawn Engine (WPF Build)
+This build is unmaintained, see the Xamrin branch for a newer, shinier and crossplatorm build.
 
 ### What is NewDawn?
 NewDawn is a text based game engine that I have made to mostly gain C# and some python experience as Path of A new dawn was my first real programming project, I have decided to remake it in C# and python but impliment it in a different way as the original version is **2000+** lines long and is very repetitive.
