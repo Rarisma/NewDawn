@@ -366,7 +366,7 @@ def C2RAttack():
     C2RTown()
 
 def C2RRight():
-    print("You start driving right.\nThis area of the city is realativly barren.\nHowever there is a building with the words dual take\nBut it seems beyond repair...\nUnexpectedly your car starts slowing down and eventually stops\n\nOptions:\nInspect car")#ちょっとなぜあなたはデュアルテイクケーキを放棄しましたか？
+    print("You start driving right.\nThis area of the city is realativly barren.\nHowever there is a building with the words dual take\nBut it seems beyond repair...\nUnexpectedly your car starts slowing down and eventually stops\n\nOptions:\nInspect car")
     Select = input()
     Select = Select.upper()
     print("")
